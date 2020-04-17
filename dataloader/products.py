@@ -27,7 +27,7 @@ class TrainValDataset(dataset.Dataset):
 
     """
 
-    def __init__(self, file_list, crop=None, aug=True, norm=False, max_size=None):
+    def __init__(self, file_list, scale=None, crop=None, aug=True, norm=False, max_size=None):
         self.im_names = []
         self.labels = []
         with open(file_list, 'r') as f:
@@ -45,6 +45,7 @@ class TrainValDataset(dataset.Dataset):
         if type(crop) == int:
             crop = (crop, crop)
 
+        self.scale = scale
         self.crop = crop
         self.aug = aug
         self.norm = norm
@@ -66,6 +67,9 @@ class TrainValDataset(dataset.Dataset):
 
         input = Image.open(self.im_names[index]).convert("RGB")
         label = self.labels[index]
+
+        if self.scale:
+            input = F.resize(input, (self.scale, self.scale))
 
         r = random.randint(0, 7)
         if self.aug and r != 7:
@@ -98,7 +102,7 @@ class TestDataset(dataset.Dataset):
             input, file_name = data
 
     """
-    def __init__(self, file_list, norm=False, max_size=None):
+    def __init__(self, file_list, scale=None, norm=False, max_size=None):
         self.im_names = []
         with open(file_list, 'r') as f:
             lines = f.readlines()
@@ -107,12 +111,17 @@ class TestDataset(dataset.Dataset):
                 img = line
                 self.im_names.append(img)
 
+        self.scale = scale
         self.norm = norm
         self.max_size = max_size
 
     def __getitem__(self, index):
 
         input = Image.open(self.im_names[index]).convert("RGB")
+
+        if self.scale:
+            input = F.resize(input, (self.scale, self.scale))
+
         if self.norm:
             input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
         else:

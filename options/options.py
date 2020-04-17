@@ -32,8 +32,8 @@ def parse_args():
 
     # input/output sizes
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
-    parser.add_argument('--resize', type=int, default=None, help='scale images to this size')
-    parser.add_argument('--crop', type=int, default=256, help='then crop to this size')
+    parser.add_argument('--scale', type=int, default=512, help='scale images to this size')
+    parser.add_argument('--crop', type=int, default=None, help='then crop to this size')
 
     # for datasets
     parser.add_argument('--dataset', choices=['ITS', 'OTS'], default='ITS', help='training dataset')
