@@ -53,7 +53,7 @@ def evaluate(model, dataloader, epochs, writer, logger, data_name='val'):
         else:
             raise Exception('Unknown dataset name: %s.' % data_name)
 
-    if dataname == 'val':
+    if data_name == 'val':
         # write_loss(writer, 'val/%s' % data_name, 'psnr', ave_psnr / float(ct_num), epochs)
 
         logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Accuracy: ' + str(correct / float(ct_num)) + '.')

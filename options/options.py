@@ -32,7 +32,7 @@ def parse_args():
 
     # input/output sizes
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
-    parser.add_argument('--scale', type=int, default=512, help='scale images to this size')
+    parser.add_argument('--scale', type=int, default=256, help='scale images to this size')
     parser.add_argument('--crop', type=int, default=None, help='then crop to this size')
 
     # for datasets
@@ -51,11 +51,11 @@ def parse_args():
     parser.add_argument('--debug', action='store_true', help='debug mode')
     parser.add_argument('--load', type=str, default=None, help='load checkpoint')
     parser.add_argument('--which-epoch', type=int, default=None, help='which epoch to resume')
-    parser.add_argument('--epochs', '--max_epoch', type=int, default=500, help='epochs to train')
+    parser.add_argument('--epochs', '--max_epoch', type=int, default=5, help='epochs to train')
     parser.add_argument('--lr', type=float, default=0.0002, help='initial learning rate for adam')
 
-    parser.add_argument('--save_freq', type=int, default=50, help='freq to save models')
-    parser.add_argument('--eval_freq', '--val_freq', type=int, default=50, help='freq to eval models')
+    parser.add_argument('--save_freq', type=int, default=1, help='freq to save models')
+    parser.add_argument('--eval_freq', '--val_freq', type=int, default=1, help='freq to eval models')
     parser.add_argument('--log_freq', type=int, default=1, help='freq to vis in tensorboard')
 
     return parser.parse_args()

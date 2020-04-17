@@ -12,12 +12,12 @@ TEST_DATASET_HAS_OPEN = False  # 有没有开放测试集
 train_list = "./datasets/train.txt"
 val_list = "./datasets/val.txt"
 
-max_size = 10 if opt.debug else None
+max_size = 128 if opt.debug else None
 
 train_dataset = TrainValDataset(train_list, scale=opt.scale, aug=False, max_size=max_size)
 train_dataloader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=4)
 
-val_dataset = TrainValDataset(val_list, scale=opt.scale, aug=False, max_size=None)
+val_dataset = TrainValDataset(val_list, scale=opt.scale, aug=False, max_size=max_size)
 val_dataloader = DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=1)
 
 

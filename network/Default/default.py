@@ -13,7 +13,7 @@ classes = 50030
 class Classifier(nn.Module):
     def __init__(self):
         super(Classifier, self).__init__()
-        self.network = resnet101()
+        self.network = resnet101(pretrained=True)
         num_ftrs = self.network.fc.in_features
         self.network.fc = nn.Linear(num_ftrs, classes)
 
