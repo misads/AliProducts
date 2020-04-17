@@ -24,7 +24,7 @@ def generate(json_file, output):
     f2.close()
 
 
-# generate(train_json, 'train')
+generate(train_json, 'train')
 generate(val_json, 'val')
 
 

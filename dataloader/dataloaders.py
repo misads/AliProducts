@@ -17,15 +17,15 @@ max_size = 10 if opt.debug else None
 train_dataset = TrainValDataset(train_list, aug=False, max_size=max_size)
 train_dataloader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=4)
 
-val_dataset = TrainValDataset(val_list, aug=False, max_size=max_size)
-val_dataloader = DataLoader(val_dataset, batch_size=1, shuffle=False, num_workers=1)
+val_dataset = TrainValDataset(val_list, aug=False, max_size=None)
+val_dataloader = DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=1)
 
 
 if TEST_DATASET_HAS_OPEN:
     test_list = "./datasets/test.txt"  # 还没有
 
     test_dataset = TestDataset(test_list, max_size=max_size)
-    test_dataloader = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=1)
+    test_dataloader = DataLoader(test_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=1)
 
 else:
     test_dataloader = None

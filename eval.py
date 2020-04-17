@@ -38,26 +38,28 @@ def evaluate(model, dataloader, epochs, writer, logger, data_name='val'):
         if data_name == 'val':
             input, label, path = data['input'], data['label'], data['path']
             utils.progress_bar(i, len(dataloader), 'Eva... ')
-            ct_num += 1
+            # ct_num += 1
             with torch.no_grad():
                 img_var = Variable(input, requires_grad=False).to(device=opt.device)
+                label_var = Variable(label, requires_grad=False).to(device=opt.device)
                 predicted = model(img_var)
                 _, predicted = torch.max(predicted, 1)
                 ct_num += label.size(0)
-                correct += (predicted == label).sum().item()
-
-            # write_loss(writer, 'val/%s' % data_name, 'psnr', ave_psnr / float(ct_num), epochs)
-            # write_loss(writer, 'val/%s' % data_name, 'ssim', ave_ssim / float(ct_num), epochs)
-
-            logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Accuracy: ' + str(correct / float(ct_num)) + '.')
-
-            return str(round(correct / float(ct_num), 3))
+                correct += (predicted == label_var).sum().item()
 
         elif data_name == 'test':
             pass
 
         else:
             raise Exception('Unknown dataset name: %s.' % data_name)
+
+    if dataname == 'val':
+        # write_loss(writer, 'val/%s' % data_name, 'psnr', ave_psnr / float(ct_num), epochs)
+
+        logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Accuracy: ' + str(correct / float(ct_num)) + '.')
+        return str(round(correct / float(ct_num), 3))
+    else:
+        return ''
 
 
 if __name__ == '__main__':

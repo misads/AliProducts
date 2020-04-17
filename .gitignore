@@ -133,6 +133,7 @@ attempt.py
 */DS_Store
 */*/DS_Store
 datasets/
+datasets
 checkpoints/
 logs/
 results/
