@@ -182,7 +182,7 @@ try:
             #       Update parameters
             ##############################
             update = model.update(img_var, label_var)
-            predicted = update['predicted']
+            predicted = update.get('predicted')
 
             pre_msg = 'Epoch:%d' % epoch
 
