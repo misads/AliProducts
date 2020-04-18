@@ -190,7 +190,9 @@ try:
             utils.progress_bar(iteration, len(train_dataloader), pre_msg, msg)
             # print(pre_msg, msg)
 
-        write_meters_loss(writer, 'train', model.avg_meters, epoch)
+            if global_step % 1000 == 999:
+                write_meters_loss(writer, 'train', model.avg_meters, global_step)
+        
         logger.info('Train epoch %d, (loss) ' % epoch + str(model.avg_meters))
 
         if epoch % opt.save_freq == opt.save_freq - 1 or epoch == opt.epochs - 1:  # 每隔10次save checkpoint
