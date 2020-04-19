@@ -10,6 +10,7 @@ import torch.nn.functional as F
 
 from torch_template.network.base_model import BaseModel
 from torch_template.utils.torch_utils import ExponentialMovingAverage, print_network
+from options import opt
 
 from .resnest_wrapper import Classifier
 
@@ -30,7 +31,7 @@ class Model(BaseModel):
     def __init__(self, opt):
         super(Model, self).__init__()
         self.opt = opt
-        self.classifier = Classifier()  #.cuda(device=opt.device)
+        self.classifier = Classifier(opt.model)  #.cuda(device=opt.device)
         #####################
         #    Init weights
         #####################

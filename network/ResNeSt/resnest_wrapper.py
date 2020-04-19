@@ -5,15 +5,21 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from .resnest import resnest200
+from .resnest import resnest101, resnest200
 
 classes = 50030
 
+arch_dict = {
+    'ResNeSt101': resnest101,
+    'ResNeSt200': resnest200
+
+}
+
 
 class Classifier(nn.Module):
-    def __init__(self):
+    def __init__(self, arch):
         super(Classifier, self).__init__()
-        self.network = resnest200(pretrained=False)
+        self.network = arch_dict[arch](pretrained=False)
         # pdb.set_trace()
         num_ftrs = self.network.fc.in_features
         self.network.fc = nn.Linear(num_ftrs, classes)

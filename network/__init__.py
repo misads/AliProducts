@@ -3,7 +3,8 @@ from .ResNeSt.Model import Model as ResNeSt
 
 models = {
     'default': Default,  # if --model is not specified
-    'ResNeSt': ResNeSt
+    'ResNeSt101': ResNeSt,
+    'ResNeSt200': ResNeSt,
 
 }
 
