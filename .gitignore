@@ -137,3 +137,4 @@ datasets
 checkpoints/
 logs/
 results/
+run_log.txt
