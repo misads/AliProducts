@@ -1,7 +1,9 @@
 from .Default.Model import Model as Default
+from .ResNeSt.Model import Model as ResNeSt
 
 models = {
     'default': Default,  # if --model is not specified
+    'ResNeSt': ResNeSt
 
 }
 
