@@ -21,6 +21,9 @@ help = """Usage:
 Training:
     python train.py --tag your_tag --model {%s} -b 8 --gpu 0""" % model_choices + """
 
+Finding Best Hyper Params:
+    python runx.py --run
+
 Debug:
     python train.py --model {%s} --debug""" % model_choices + """
     

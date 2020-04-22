@@ -1,0 +1,9 @@
+cmd: 'python train.py'
+
+hparams:
+  model: ['res101', 'ResNeSt101', 'iResNet101']
+  epochs: [5]
+  batch_size: [16]
+  scale: [256, 512]
+  lr: [0.01, 0.02]
+

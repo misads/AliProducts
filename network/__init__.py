@@ -4,6 +4,7 @@ from .iResNet.Model import Model as iResNet
 
 models = {
     'default': Default,  # if --model is not specified
+    'res101': Default,
     'ResNeSt101': ResNeSt,
     'ResNeSt200': ResNeSt,
     'iResNet101': iResNet,
