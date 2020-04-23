@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from network.iResNet.iresnet.iresnet import iresnet101, iresnet152, iresnet200, iresnet1001
+from .iresnet.iresnet import iresnet101, iresnet152, iresnet200, iresnet1001
 
 classes = 50030
 
