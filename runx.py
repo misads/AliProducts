@@ -90,7 +90,7 @@ if __name__ == '__main__':
         for (hparam, _), choice in zip(hparams, one_run):
             command += ' --%s %s' % (hparam, choice)
 
-        utils.color_print(('%d/%d: ' % ((i+1), len(ans)) + command), 0)
+        utils.color_print(('%d/%d: ' % ((i+1), len(ans)) + command), 4)
         if opt.run:
             os.system(command)
 

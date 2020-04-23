@@ -19,7 +19,7 @@ arch_dict = {
 class Classifier(nn.Module):
     def __init__(self, arch):
         super(Classifier, self).__init__()
-        self.network = arch_dict[arch](pretrained=False)
+        self.network = arch_dict[arch](pretrained=True)
         # pdb.set_trace()
         num_ftrs = self.network.fc.in_features
         self.network.fc = nn.Linear(num_ftrs, classes)
