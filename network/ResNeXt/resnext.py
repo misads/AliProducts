@@ -26,7 +26,7 @@ class Classifier(nn.Module):
 
         # num_ftrs = self.network._modules['10']._modules['1'].in_features
         # # num_ftrs = self.network.fc.in_features
-        self.network._modules['10']._modules['1'] = nn.Linear(8192, classes)
+        self.network._modules['10']._modules['1'] = nn.Linear(2048, classes)
         # print(self.network)
 
     def forward(self, input):
@@ -721,5 +721,5 @@ def resnext_101_32x4d():
 )
 
 # a = Classifier()
-# img = torch.randn([1, 3, 256, 256])
+# img = torch.randn([1, 3, 224, 224])
 # a(img)
