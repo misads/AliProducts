@@ -23,6 +23,6 @@ class Classifier(nn.Module):
         return self.network(x)
 
 
-a = Classifier()
+# a = Classifier()
 # img = torch.randn([1, 3, 256, 256])
 
