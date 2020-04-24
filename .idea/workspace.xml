@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0b4d4d5-407d-4287-8c0c-4e11725d9453" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/network/ResNeXt/Model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/ResNeXt/resnext.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/Default/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/Default/default.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/iResNet/iresnest_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/iResNet/iresnest_wrapper.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,49 +18,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/help.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/runx.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="88" column="44" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
-              <folding>
-                <element signature="e#235#250#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/iResNet/Model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-62">
-              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="15">
+              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/network/EfficientNet/efficientest_wrapper.py">
+        <entry file="file://$PROJECT_DIR$/network/ResNeXt/resnext.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+            <state relative-caret-position="301">
+              <caret line="717" column="31" selection-start-line="717" selection-start-column="31" selection-end-line="717" selection-end-column="31" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -66,10 +39,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/EfficientNet/Model.py">
+        <entry file="file:///usr/local/lib/python3.7/site-packages/torch/hub.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+            <state relative-caret-position="165">
+              <caret line="418" column="45" selection-start-line="418" selection-start-column="39" selection-end-line="418" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eval.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="38" column="75" lean-forward="true" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/Default/Model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -78,10 +69,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/EfficientNet/efficientnet/__init__.py">
+        <entry file="file://$PROJECT_DIR$/network/Default/default.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="31" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="31" />
+            <state relative-caret-position="225">
+              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/lib/python3.7/site-packages/torchvision/models/resnet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3150">
+              <caret line="212" column="8" selection-start-line="212" selection-start-column="8" selection-end-line="212" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -89,32 +92,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest_wrapper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/options/options.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/iResNet/iresnest_wrapper.py">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+              <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest/resnest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="38" column="56" lean-forward="true" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -143,6 +131,9 @@
       <find>eval</find>
       <find>cleaner</find>
       <find>download_from_url</find>
+      <find>load_state_dict</find>
+      <find>load_state_dict_from_url</find>
+      <find>progress</find>
     </findStrings>
     <replaceStrings>
       <replace>TrainValDataset</replace>
@@ -160,7 +151,6 @@
         <option value="$PROJECT_DIR$/gen_label.py" />
         <option value="$PROJECT_DIR$/test.txt" />
         <option value="$PROJECT_DIR$/dataloader/__init__.py" />
-        <option value="$PROJECT_DIR$/network/Default/default.py" />
         <option value="$PROJECT_DIR$/network/Default/Model.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -169,7 +159,6 @@
         <option value="$PROJECT_DIR$/options/options.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/network/ResNeSt/Model.py" />
-        <option value="$PROJECT_DIR$/network/ResNeSt/resnest_wrapper.py" />
         <option value="$PROJECT_DIR$/eval.py" />
         <option value="$PROJECT_DIR$/attempt.py" />
         <option value="$PROJECT_DIR$/network/iResNet/Model.py" />
@@ -180,8 +169,12 @@
         <option value="$PROJECT_DIR$/sweep.yml" />
         <option value="$PROJECT_DIR$/network/iResNet/iresnest_wrapper.py" />
         <option value="$PROJECT_DIR$/network/EfficientNet/Model.py" />
-        <option value="$PROJECT_DIR$/network/__init__.py" />
         <option value="$PROJECT_DIR$/network/EfficientNet/efficientest_wrapper.py" />
+        <option value="$PROJECT_DIR$/network/ResNeSt/resnest_wrapper.py" />
+        <option value="$PROJECT_DIR$/network/Default/default.py" />
+        <option value="$PROJECT_DIR$/network/ResNeXt/Model.py" />
+        <option value="$PROJECT_DIR$/network/__init__.py" />
+        <option value="$PROJECT_DIR$/network/ResNeXt/resnext.py" />
       </list>
     </option>
   </component>
@@ -195,7 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -229,6 +221,13 @@
               <item name="AliProducts" type="b2602c69:ProjectViewProjectNode" />
               <item name="AliProducts" type="462c0819:PsiDirectoryNode" />
               <item name="network" type="462c0819:PsiDirectoryNode" />
+              <item name="EfficientNet" type="462c0819:PsiDirectoryNode" />
+              <item name="efficientnet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AliProducts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AliProducts" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
               <item name="iResNet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -236,6 +235,19 @@
               <item name="AliProducts" type="462c0819:PsiDirectoryNode" />
               <item name="network" type="462c0819:PsiDirectoryNode" />
               <item name="ResNeSt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AliProducts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AliProducts" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+              <item name="ResNeSt" type="462c0819:PsiDirectoryNode" />
+              <item name="resnest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AliProducts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AliProducts" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+              <item name="ResNeXt" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AliProducts" type="b2602c69:ProjectViewProjectNode" />
@@ -262,6 +274,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,7 +302,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.efficientest_wrapper">
+  <component name="RunManager" selected="Python.resnext">
+    <configuration name="default" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AliProducts" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/network/Default" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/network/Default/default.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="efficientest_wrapper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AliProducts" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -312,50 +347,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="iresnest_wrapper" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AliProducts" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/network/iResNet" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/network/iResNet/iresnest_wrapper.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="load_yml" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AliProducts" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/load_yml.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="resnest_wrapper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AliProducts" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -370,6 +361,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/network/ResNeSt/resnest_wrapper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="resnext" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AliProducts" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/network/ResNeXt" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/network/ResNeXt/resnext.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -402,11 +415,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.resnext" />
+        <item itemvalue="Python.default" />
+        <item itemvalue="Python.resnest_wrapper" />
         <item itemvalue="Python.efficientest_wrapper" />
         <item itemvalue="Python.runx" />
-        <item itemvalue="Python.load_yml" />
-        <item itemvalue="Python.iresnest_wrapper" />
-        <item itemvalue="Python.resnest_wrapper" />
       </list>
     </recent_temporary>
   </component>
@@ -425,29 +438,30 @@
       <workItem from="1587309899742" duration="2105000" />
       <workItem from="1587355147606" duration="2261000" />
       <workItem from="1587526869657" duration="5009000" />
-      <workItem from="1587618362153" duration="2139000" />
+      <workItem from="1587618362153" duration="2553000" />
+      <workItem from="1587720579717" duration="3034000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27909000" />
+    <option name="totallyTimeSpent" value="31357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="969" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.26984128" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2728938" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.3295325" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.46978337" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.4059293" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3295325" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.3477765" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.3808438" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.3990878" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -477,45 +491,19 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/AliProducts$default.coverage" NAME="default Coverage Results" MODIFIED="1587143592818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/network/Default" />
     <SUITE FILE_PATH="coverage/AliProducts$runx.coverage" NAME="runx Coverage Results" MODIFIED="1587529718853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AliProducts$default.coverage" NAME="default Coverage Results" MODIFIED="1587722003500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/network/Default" />
     <SUITE FILE_PATH="coverage/AliProducts$iresnest_wrapper.coverage" NAME="iresnest_wrapper Coverage Results" MODIFIED="1587366373168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/network/iResNet" />
-    <SUITE FILE_PATH="coverage/AliProducts$resnest_wrapper.coverage" NAME="resnest_wrapper Coverage Results" MODIFIED="1587310347916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/network/ResNeSt" />
+    <SUITE FILE_PATH="coverage/AliProducts$resnest_wrapper.coverage" NAME="resnest_wrapper Coverage Results" MODIFIED="1587721952672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/network/ResNeSt" />
     <SUITE FILE_PATH="coverage/AliProducts$products.coverage" NAME="products Coverage Results" MODIFIED="1587142854829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataloader" />
     <SUITE FILE_PATH="coverage/AliProducts$efficientest_wrapper.coverage" NAME="efficientest_wrapper Coverage Results" MODIFIED="1587623507568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/network/EfficientNet" />
     <SUITE FILE_PATH="coverage/AliProducts$help.coverage" NAME="help Coverage Results" MODIFIED="1587179835237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AliProducts$gen_label.coverage" NAME="gen_label Coverage Results" MODIFIED="1587138398865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AliProducts$attempt.coverage" NAME="attempt Coverage Results" MODIFIED="1587185313927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AliProducts$resnext.coverage" NAME="resnext Coverage Results" MODIFIED="1587726087970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/network/ResNeXt" />
     <SUITE FILE_PATH="coverage/AliProducts$load_yml.coverage" NAME="load_yml Coverage Results" MODIFIED="1587527393470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/datasets/product_tree.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/val.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/train.json">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="4815">
-          <caret line="321" column="11" selection-start-line="321" selection-start-column="11" selection-end-line="321" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gen_label.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.txt" />
     <entry file="file://$PROJECT_DIR$/val.txt" />
     <entry file="file://$PROJECT_DIR$/dataloader/reside.py" />
@@ -631,13 +619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="47" column="64" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2490">
@@ -655,37 +636,6 @@
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.7/site-packages/torch/nn/modules/module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15735">
-          <caret line="1056" column="74" selection-start-line="1056" selection-start-column="70" selection-end-line="1056" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.7/site-packages/torchvision/models/resnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
-          <caret line="248" lean-forward="true" selection-start-line="248" selection-end-line="248" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Default/default.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest/resnest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -709,20 +659,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/Default/Model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sweep.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="17" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/iResNet/iresnet/iresnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="312" column="4" selection-start-line="312" selection-start-column="4" selection-end-line="312" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -743,39 +693,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/options/options.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest_wrapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/iResNet/iresnest_wrapper.py">
+    <entry file="file://$PROJECT_DIR$/network/iResNet/Model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/iResNet/iresnet/iresnet.py">
+    <entry file="file://$PROJECT_DIR$/network/EfficientNet/Model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="312" column="4" selection-start-line="312" selection-start-column="4" selection-end-line="312" selection-end-column="4" />
+        <state relative-caret-position="225">
+          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -787,34 +717,138 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/iResNet/Model.py">
+    <entry file="file://$PROJECT_DIR$/options/options.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        <state relative-caret-position="120">
+          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/__init__.py">
+    <entry file="file://$PROJECT_DIR$/network/iResNet/iresnest_wrapper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        <state relative-caret-position="105">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/EfficientNet/Model.py">
+    <entry file="file:///usr/local/lib/python3.7/site-packages/torch/nn/modules/linear.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+        <state relative-caret-position="182">
+          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/EfficientNet/efficientest_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/EfficientNet/efficientest_wrapper.py">
+    <entry file="file:///usr/local/lib/python3.7/site-packages/torch/nn/modules/module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+        <state relative-caret-position="449">
+          <caret line="77" column="11" lean-forward="true" selection-start-line="77" selection-start-column="11" selection-end-line="77" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/EfficientNet/efficientnet/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3108" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/iResNet/iresnet/download_from_url.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval_script.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest/resnest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="38" column="56" lean-forward="true" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Default/Model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Default/default.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/torchvision/models/resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3150">
+          <caret line="212" column="8" selection-start-line="212" selection-start-column="8" selection-end-line="212" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/torch_template/network/base_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ResNeXt/Model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16">
+          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="38" column="75" lean-forward="true" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/torch/hub.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="418" column="45" selection-start-line="418" selection-start-column="39" selection-end-line="418" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ResNeXt/resnext.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="717" column="31" selection-start-line="717" selection-start-column="31" selection-end-line="717" selection-end-column="31" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

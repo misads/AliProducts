@@ -2,7 +2,7 @@
 
 Potato Chips Classification.
 
-### Requirements
+### Prerequisites
 
 ```yaml
 python >= 3.5

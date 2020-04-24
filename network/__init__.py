@@ -1,4 +1,5 @@
 from .Default.Model import Model as Default
+from .ResNeXt.Model import Model as ResNeXt
 from .ResNeSt.Model import Model as ResNeSt
 from .iResNet.Model import Model as iResNet
 from .EfficientNet.Model import Model as Efficient
@@ -6,6 +7,7 @@ from .EfficientNet.Model import Model as Efficient
 models = {
     'default': Default,  # if --model is not specified
     'res101': Default,
+    'ResNeXt101': ResNeXt,
     'ResNeSt101': ResNeSt,
     'ResNeSt200': ResNeSt,
     'iResNet101': iResNet,
@@ -13,7 +15,7 @@ models = {
     'iResNet200': iResNet,
     'iResNet1001': iResNet,
     'EfficientNet-B5': Efficient,
-    'EfficientNet-B7': Efficient
+    'EfficientNet-B7': Efficient,
 
 }
 

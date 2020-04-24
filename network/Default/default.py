@@ -13,8 +13,9 @@ classes = 50030
 class Classifier(nn.Module):
     def __init__(self):
         super(Classifier, self).__init__()
-        self.network = resnet101(pretrained=True)
+        self.network = resnet101(pretrained=False)
         num_ftrs = self.network.fc.in_features
+        print(self.network)
         self.network.fc = nn.Linear(num_ftrs, classes)
 
     def forward(self, input):
@@ -22,6 +23,6 @@ class Classifier(nn.Module):
         return self.network(x)
 
 
-# a = classifier()
+a = Classifier()
 # img = torch.randn([1, 3, 256, 256])
 
