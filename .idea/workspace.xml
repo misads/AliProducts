@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d0b4d4d5-407d-4287-8c0c-4e11725d9453" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/dataloader/dataloaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataloader/dataloaders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/options/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/options/options.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataloader/dataloaders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+            <state relative-caret-position="255">
+              <caret line="17" column="115" selection-start-line="17" selection-start-column="115" selection-end-line="17" selection-end-column="115" />
               <folding>
                 <element signature="e#17#50#0" expanded="true" />
               </folding>
@@ -49,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/options/options.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+            <state relative-caret-position="294">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -447,24 +446,24 @@
       <workItem from="1587720579717" duration="4357000" />
       <workItem from="1587948626447" duration="145000" />
       <workItem from="1587992654075" duration="523000" />
-      <workItem from="1588339187228" duration="5007000" />
+      <workItem from="1588339187228" duration="5228000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38355000" />
+    <option name="totallyTimeSpent" value="38576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="963" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2820513" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2820513" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.3295063" />
-      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.24110219" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.24110219" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3295063" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -863,8 +862,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dataloader/dataloaders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+        <state relative-caret-position="255">
+          <caret line="17" column="115" selection-start-line="17" selection-start-column="115" selection-end-line="17" selection-end-column="115" />
           <folding>
             <element signature="e#17#50#0" expanded="true" />
           </folding>
@@ -873,8 +872,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/options/options.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+        <state relative-caret-position="294">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
