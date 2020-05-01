@@ -1,47 +1,64 @@
-# AliProducts
+# AliProducts 薯片🍟分类
 
 Potato Chips Classification.
 
-### Prerequisites
+## To do List
+
+- 网络结构
+  - [x] ResNet(101)
+  - [x] ResNe**X**t(101)
+  - [x] ResNe**S**t(101, 200)
+  - [x] **i**ResNet(101, 152, 200)
+  - [x] EffiCientNet(B-5, B-7)
+  - [ ] DenseNet(201)
+
+- 改结构
+  - [ ] 自注意力机制
+  - [ ] 解决Long-Tailed Problem
+
+- 损失函数
+  - [x] 交叉熵
+  - [ ] Focal loss
+
+- 优化器
+  - [x] Adam
+  - [ ] RAdam
+  - [ ] NAdam
+  - [ ] Look Ahead
+
+- Data Argumentation
+  - [ ] 随机旋转(-10, 10)度 (有黑边)
+  - [ ] 随机左右翻转(字会变反)
+  - [x] 随机放大(1, 1.3)倍
+  - [x] 随机色相(-0.1, 0.1)
+  - [x] 随机饱和度(-1/1.5, 1/1.5)
+  - [x] 随机亮度(-1/1.5, 1/1.5)
+- TTA
+  - [ ] 放大、色相、饱和度、亮度
+  - [ ] ttach库
+
+- 其他Tricks
+  - [ ] mix up
+  - [ ] 使用fp_16训练，提高训练速度
+  - [ ] One_Cycle 学习率
+
+## Prerequisites
 
 ```yaml
-python >= 3.5
+python >= 3.6
 torch >= 0.4
 tensorboardX >= 1.6
-utils-misc >= 0.0.3
+utils-misc >= 0.0.5
 torch-template >= 0.0.4
 ```
 
-### Training
+## Code Usage
 
-```bash
-python3 train.py --tag train_1 --model res101 --b 16 --epochs 100 --gpu 0
+```python
+python help.py
 ```
 
-### Load Checkpoint
-
-```bash
-python3 train.py --load checkpoints/train_1 --which-epoch 500
-```
-
-### Testing
-
-```shell script
-python3 eval.py --tag eval_1 --model res101 checkpoints/train_1 --which-epoch 500 
-# test results will be saved in 'results/eval_1' directory
-```
-
-### Visulization on TensorBoard
-
-```shell script
-tensorboard --logdir logs/train_1
-```
-
-### Documentation
-
-Detailed file structure and code usage can be found in train.py.
-
-### 如何添加新的模型：
+## 如何添加新的模型：
 
 ```
 如何添加新的模型：
