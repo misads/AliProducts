@@ -30,8 +30,14 @@ def parse_args():
     parser.add_argument('--norm', type=str, choices=['batch', 'instance', None], default=None,
                         help='[instance] normalization or [batch] normalization')
 
-    # input/output sizes
+    # batch size
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
+
+    # data argumentation
+    parser.add_argument('--aug', action='store_true', help='Randomly scale, jitter, change hue, saturation and brightness')
+    parser.add_argument('--random-erase', action='store_true', help='debug mode')
+
+    # scale
     parser.add_argument('--scale', type=int, default=256, help='scale images to this size')
     parser.add_argument('--crop', type=int, default=None, help='then crop to this size')
 
