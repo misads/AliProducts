@@ -14,8 +14,9 @@ Potato Chips Classification.
 
 - 改结构
   - [ ] 自注意力机制
-  - [ ] 解决Long-Tailed Problem
-
+  - [ ] Few-Shot Learning
+- [ ] 解决Long-Tailed Problem
+  
 - 损失函数
   - [x] 交叉熵
   - [ ] Focal loss
@@ -33,6 +34,8 @@ Potato Chips Classification.
   - [x] 随机色相(-0.1, 0.1)
   - [x] 随机饱和度(-1/1.5, 1/1.5)
   - [x] 随机亮度(-1/1.5, 1/1.5)
+  - [ ] Random Erase
+  - [ ] Norm_input
 - TTA
   - [ ] 放大、色相、饱和度、亮度
   - [ ] ttach库

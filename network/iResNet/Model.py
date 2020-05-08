@@ -8,7 +8,7 @@ from torch import optim
 import torch.nn as nn
 import torch.nn.functional as F
 
-from torch_template.network.base_model import BaseModel
+from network.base_model import BaseModel
 from torch_template.utils.torch_utils import ExponentialMovingAverage, print_network
 from options import opt
 
