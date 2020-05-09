@@ -53,8 +53,9 @@ class BaseModel(torch.nn.Module):
         else:
             # network.load_state_dict(torch.load(save_path))
             try:
-                network.load_state_dict(torch.load(save_path), map_location=opt.device)
+                network.load_state_dict(torch.load(save_path, map_location=opt.device))
                 color_print('Load checkpoint from %s.' % save_path, 3)
+            
             except:
                 pretrained_dict = torch.load(save_path, map_location=opt.device)
                 model_dict = network.state_dict()
@@ -82,6 +83,7 @@ class BaseModel(torch.nn.Module):
 
                     print(sorted(not_initialized))
                     network.load_state_dict(model_dict)
+            
 
     def update_learning_rate(self):
         pass
