@@ -216,13 +216,13 @@ try:
 
         logger.info(f'Train epoch: {epoch}, lr: {round(scheduler.get_lr()[0], 6) : .6f}, (loss) ' + str(model.avg_meters))
 
-        if epoch % opt.save_freq == opt.save_freq - 1 or epoch == opt.epochs - 1:  # 每隔10次save checkpoint
+        if epoch % opt.save_freq == 0 or epoch == opt.epochs:  # 最后一个epoch要保存一下
             model.save(epoch)
 
         ####################
         #     Validation
         ####################
-        if epoch % opt.eval_freq == (opt.eval_freq - 1):
+        if epoch % opt.eval_freq == 0:
 
             model.eval()
             eval_result = evaluate(model, val_dataloader, epoch, writer, logger)
