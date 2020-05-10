@@ -15,12 +15,15 @@ Potato Chips Classification.
 - 改结构
   - [ ] 自注意力机制
   - [ ] Few-Shot Learning
+  - [ ] Deep Metric Learning
 - [ ] 解决Long-Tailed Problem
   
 - 损失函数
   - [x] 交叉熵
-  - [ ] Focal loss
-
+  - [ ] Lifted Loss
+- [ ] Focal Loss
+  - [ ] Range Loss
+  
 - 优化器
   - [x] Adam
   - [ ] RAdam

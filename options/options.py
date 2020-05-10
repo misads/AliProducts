@@ -33,6 +33,10 @@ def parse_args():
     # batch size
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
 
+    # optimizer and scheduler
+    parser.add_argument('--scheduler', choices=['cos', 'step', 'exp', 'cyclic', 'lambda', None], default='cos')
+    parser.add_argument('--reset', action='store_true', help='reset epoch after loading checkpoint')
+
     # data argumentation
     parser.add_argument('--aug', action='store_true', help='Randomly scale, jitter, change hue, saturation and brightness')
     parser.add_argument('--random-erase', action='store_true', help='debug mode')

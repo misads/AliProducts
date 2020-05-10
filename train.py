@@ -94,23 +94,25 @@
 import os
 import pdb
 import time
+import numpy as np
 from collections.abc import Iterable
 
 import torch
+from torch import optim
 from torch.autograd import Variable
 
 import dataloader as dl
+from options import opt
 
 from network import get_model
-
 from eval import evaluate
-from options import opt
+
 from utils import *
-from torch_template.utils.torch_utils import create_summary_writer, write_meters_loss, LR_Scheduler
-import misc_utils as utils
-import numpy as np
+# from torch_template.utils.torch_utils import create_summary_writer, write_meters_loss, LR_Scheduler
+from utils.torch_utils import create_summary_writer, write_meters_loss
 from utils.send_sms import send_notification
-import pdb
+
+import misc_utils as utils
 
 ######################
 #       Paths
@@ -136,7 +138,11 @@ model = Model(opt)
 #     model = torch.nn.DataParallel(model, device_ids=opt.gpu_ids)
 model = model.to(device=opt.device)
 
-start_epoch = opt.which_epoch if opt.which_epoch else 0
+if opt.which_epoch and not opt.reset:
+    start_epoch = opt.which_epoch + 1
+else:
+    start_epoch = 1
+
 model.train()
 
 # Start training
@@ -147,9 +153,29 @@ total_steps = opt.epochs * len(train_dataloader)
 start = time.time()
 
 #####################
-#   cosine 学习率
+#   定义scheduler
 #####################
-scheduler = LR_Scheduler('cos', opt.lr, opt.epochs, len(train_dataloader), warmup_epochs=0, logger=logger)
+
+optimizer = model.optimizer
+if opt.scheduler == 'cos':
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=opt.epochs, eta_min=opt.lr * 0.1)
+elif opt.scheduler == 'step':
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=opt.epochs // 3, gamma=0.1)
+elif opt.scheduler == 'exp':
+    scheduler = optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.99)
+elif opt.scheduler == 'cyclic':
+    scheduler = torch.optim.lr_scheduler.CyclicLR(optimizer, base_lr=opt.lr, max_lr=0.1 * opt.lr, step_size_up=opt.epochs // 10,
+                                                  step_size_down=opt.epochs // 10)
+elif opt.scheduler == 'lambda':
+    def lambda_decay(epoch) -> float:
+        warm_epoch = int(0.1 * opt.epochs)
+        if epoch <= warm_epoch:
+            return epoch * 0.1 / warm_epoch
+        else:
+            return 0.1 * 0.99 ** (epoch - warm_epoch)
+
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda_decay)
+
 ######################
 #    Summary_writer
 ######################
@@ -162,13 +188,8 @@ start_time = time.time()
 try:
     eval_result = ''
 
-    for epoch in range(start_epoch, opt.epochs):
+    for epoch in range(start_epoch, opt.epochs + 1):
         for iteration, data in enumerate(train_dataloader):
-            ####################
-            #     Update lr
-            ####################
-            scheduler(model.optimizer, iteration, epoch + 1)
-
             global_step += 1
             rate = (global_step - start_step) / (time.time() - start)
             remaining = (total_steps - global_step) / rate
@@ -192,8 +213,8 @@ try:
 
             if global_step % 1000 == 999:
                 write_meters_loss(writer, 'train', model.avg_meters, global_step)
-        
-        logger.info('Train epoch %d, (loss) ' % epoch + str(model.avg_meters))
+
+        logger.info(f'Train epoch: {epoch}, lr: {round(scheduler.get_lr()[0], 6) : .6f}, (loss) ' + str(model.avg_meters))
 
         if epoch % opt.save_freq == opt.save_freq - 1 or epoch == opt.epochs - 1:  # 每隔10次save checkpoint
             model.save(epoch)
@@ -204,10 +225,13 @@ try:
         if epoch % opt.eval_freq == (opt.eval_freq - 1):
 
             model.eval()
-            eval_result = evaluate(model, val_dataloader, epoch + 1, writer, logger)
+            eval_result = evaluate(model, val_dataloader, epoch, writer, logger)
             model.train()
 
-    send_notification([opt.tag[:12], '', '', eval_result])
+        if opt.scheduler is not None:
+            scheduler.step()
+
+    # send_notification([opt.tag[:12], '', '', eval_result])
 
     if opt.tag != 'cache':
         with open('run_log.txt', 'a') as f:
@@ -215,8 +239,8 @@ try:
 
 except Exception as e:
 
-    if not opt.debug:  # debug模式不会发短信 12是短信模板字数限制
-        send_notification([opt.tag[:12], str(e)[:12]], template='error')
+    # if not opt.debug:  # debug模式不会发短信 12是短信模板字数限制
+    #     send_notification([opt.tag[:12], str(e)[:12]], template='error')
 
     if opt.tag != 'cache':
         with open('run_log.txt', 'a') as f:

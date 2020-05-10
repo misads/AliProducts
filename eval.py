@@ -83,5 +83,5 @@ if __name__ == '__main__':
     model.eval()
     writer = create_summary_writer(log_root)
 
-    evaluate(model, dl.val_dataloader, opt.which_epoch + 1, writer, logger, 'val')
+    evaluate(model, dl.val_dataloader, opt.which_epoch, writer, logger, 'val')
 
