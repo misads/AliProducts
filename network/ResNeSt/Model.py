@@ -1,6 +1,7 @@
 import pdb
 
 import numpy as np
+import pickle
 import torch
 import os
 
@@ -15,7 +16,7 @@ from options import opt
 from .resnest_wrapper import Classifier
 
 
-criterionCE = nn.CrossEntropyLoss()
+#  criterionCE = nn.CrossEntropyLoss()
 
 
 def weights_init(m):
@@ -51,10 +52,16 @@ class Model(BaseModel):
         self.avg_meters = ExponentialMovingAverage(0.95)
         self.save_dir = os.path.join(opt.checkpoint_dir, opt.tag)
 
+        with open('datasets/class_weight.pkl', 'rb') as f:
+            class_weight = pickle.load(f, encoding='bytes')
+            class_weight = np.array(class_weight, dtype=np.float32)
+            class_weight = torch.from_numpy(class_weight).to(opt.device)
+            self.criterionCE = nn.CrossEntropyLoss(weight=class_weight)
+
     def update(self, input, label):
 
         predicted = self.classifier(input)
-        loss = criterionCE(predicted, label)
+        loss = self.criterionCE(predicted, label)
 
         self.avg_meters.update({'Cross Entropy': loss.item()})
 
