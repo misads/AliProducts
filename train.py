@@ -228,7 +228,7 @@ try:
             eval_result = evaluate(model, val_dataloader, epoch, writer, logger)
             model.train()
 
-        if opt.scheduler is not None:
+        if opt.scheduler != 'None':
             scheduler.step()
 
     # send_notification([opt.tag[:12], '', '', eval_result])

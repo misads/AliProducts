@@ -1,5 +1,6 @@
 # encoding=utf-8
 from dataloader.products import *
+from dataloader.ClassAwareSampler import ClassAwareSampler
 from torch.utils.data import DataLoader
 from options import opt
 
@@ -14,12 +15,20 @@ val_list = "./datasets/val.txt"
 
 max_size = 128 if opt.debug else None
 
-train_dataset = TrainValDataset(train_list, scale=opt.scale, aug=opt.aug, max_size=max_size)
-train_dataloader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=4, drop_last=True)
+train_dataset = TrainValDataset(train_list, scale=opt.scale, aug=opt.aug, max_size=max_size, norm=opt.norm_input)
 
-val_dataset = TrainValDataset(val_list, scale=opt.scale, aug=False, max_size=max_size)
+# stage2 training
+if opt.stage2:
+    train_dataloader = DataLoader(dataset=dataset, batch_size=opt.batch_size, shuffle=False,
+                                  sampler=ClassAwareSampler(dataset, num_samples_cls=opt.num_samples_cls),
+                                  num_workers=4, drop_last=True)
+# stage1 training
+else:
+    train_dataloader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=4, drop_last=True)
+
+
+val_dataset = TrainValDataset(val_list, scale=opt.scale, aug=False, max_size=max_size, norm=opt.norm_input)
 val_dataloader = DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=1)
-
 
 if TEST_DATASET_HAS_OPEN:
     test_list = "./datasets/test.txt"  # 还没有

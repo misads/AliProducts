@@ -2,17 +2,17 @@
 import pdb
 
 import torchvision.transforms.functional as F
+from torch.utils.data import DataLoader
+from dataloader.ClassAwareSampler import ClassAwareSampler
 import os
 from PIL import Image
 import torch.utils.data.dataset as dataset
 from torchvision import transforms
 import torchvision.transforms as transforms
 
-
 import random
 import numpy as np
 import cv2
-
 
 from torch_template import torch_utils
 
@@ -109,6 +109,16 @@ class TrainValDataset(dataset.Dataset):
         self.norm = norm
         self.max_size = max_size
 
+        no_transform = transforms.Lambda(lambda x: x)
+
+        self.transform = transforms.Compose([
+            transforms.RandomResizedCrop(scale),
+            transforms.RandomHorizontalFlip() if aug else no_transform,
+            transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0) if aug else no_transform,
+            transforms.ToTensor(),
+            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]) if norm else no_transform
+        ])
+
     def __getitem__(self, index):
         """Get indexs by index
 
@@ -126,17 +136,18 @@ class TrainValDataset(dataset.Dataset):
         input = Image.open(self.im_names[index]).convert("RGB")
         label = self.labels[index]
 
-        if self.scale:
-            input = F.resize(input, (self.scale, self.scale))
-
-        if self.aug:
-            input = data_augmentation(input, scale=self.scale, degree=0, jitter=0.3, hue=0.1, saturation=1.5, val=1.5)
-            #input = input.transpose(self.trans_dict[r])
-
-        if self.norm:
-            input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
-        else:
-            input = F.to_tensor(input)
+        input = self.transform(input)
+        # if self.scale:
+        #     input = F.resize(input, (self.scale, self.scale))
+        #
+        # if self.aug:
+        #     input = data_augmentation(input, scale=self.scale, degree=0, jitter=0.3, hue=0.1, saturation=1.5, val=1.5)
+        #     # input = input.transpose(self.trans_dict[r])
+        #
+        # if self.norm:
+        #     input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+        # else:
+        #     input = F.to_tensor(input)
 
         return {'input': input, 'label': label, 'path': self.im_names[index]}
 
@@ -160,6 +171,7 @@ class TestDataset(dataset.Dataset):
             input, file_name = data
 
     """
+
     def __init__(self, file_list, scale=None, norm=False, max_size=None):
         self.im_names = []
         with open(file_list, 'r') as f:
@@ -173,19 +185,29 @@ class TestDataset(dataset.Dataset):
         self.norm = norm
         self.max_size = max_size
 
+        no_transform = transforms.Lambda(lambda x: x)
+
+        self.transform = transforms.Compose([
+            transforms.Resize(scale),
+            # transforms.CenterCrop(256),
+            transforms.ToTensor(),
+            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]) if norm else no_transform
+        ])
+
     def __getitem__(self, index):
 
         input = Image.open(self.im_names[index]).convert("RGB")
 
-        if self.scale:
-            input = F.resize(input, (self.scale, self.scale))
+        input = self.transform(input)
+        # if self.scale:
+        #     input = F.resize(input, (self.scale, self.scale))
+        #
+        # if self.norm:
+        #     input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+        # else:
+        #     input = F.to_tensor(input)
 
-        if self.norm:
-            input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
-        else:
-            input = F.to_tensor(input)
-
-        return {'input': input, 'path':self.im_names[index]}
+        return {'input': input, 'path': self.im_names[index]}
 
     def __len__(self):
         if self.max_size is not None:
@@ -217,8 +239,13 @@ def preview_dataset(dataset, path='path'):
 
 
 if __name__ == '__main__':
-
-    dataset = TrainValDataset('../datasets/train.txt', scale=320, aug=True)
+    dataset = TrainValDataset('../datasets/train.txt', scale=256, aug=True, norm=False)
+    # pdb.set_trace()
+    # dataloader = DataLoader(dataset=dataset, batch_size=2, shuffle=False,
+    #                         sampler=ClassAwareSampler(dataset, num_samples_cls=4),
+    #                         num_workers=1)
+    # for data in dataloader:
+    #     pdb.set_trace()
     preview_dataset(dataset)
 
     # dataset = TestDataset('../test.txt')
@@ -233,6 +260,3 @@ if __name__ == '__main__':
     # for i, data in enumerate(test_dataset):
     #     input, file_name = data
     #     torch_utils.write_image(writer, 'train', file_name, input, i)
-
-
-

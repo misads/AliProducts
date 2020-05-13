@@ -33,12 +33,17 @@ def parse_args():
     # batch size
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
 
+    parser.add_argument('--stage2', action='store_true', help='Stage2 training. Long-tailed fine-tune.')
+    parser.add_argument('--num_samples_cls', type=int, default=4, help='input batch size')
+
     # optimizer and scheduler
-    parser.add_argument('--scheduler', choices=['cos', 'step', 'exp', 'cyclic', 'lambda', None], default='cos')
+    parser.add_argument('--optimizer', choices=['adam', 'sgd', 'radam', 'lookahead', 'ranger'], default='ranger')
+    parser.add_argument('--scheduler', choices=['cos', 'step', 'exp', 'cyclic', 'lambda', 'None'], default='cos')
     parser.add_argument('--reset', action='store_true', help='reset epoch after loading checkpoint')
 
     # data argumentation
     parser.add_argument('--aug', action='store_true', help='Randomly scale, jitter, change hue, saturation and brightness')
+    parser.add_argument('--norm-input', action='store_true')
     parser.add_argument('--random-erase', action='store_true', help='debug mode')
 
     # scale

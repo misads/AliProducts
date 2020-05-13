@@ -11,6 +11,7 @@ import torch.nn.functional as F
 
 from network.base_model import BaseModel
 from torch_template.utils.torch_utils import ExponentialMovingAverage, print_network
+from optimizer import RAdam, Ranger, Lookahead
 from options import opt
 
 from .resnest_wrapper import Classifier
@@ -40,7 +41,18 @@ class Model(BaseModel):
 
         print_network(self.classifier)
 
-        self.optimizer = optim.Adam(self.classifier.parameters(), lr=opt.lr, betas=(0.95, 0.999))
+        if opt.optimizer == 'adam':
+            self.optimizer = optim.Adam(self.classifier.parameters(), lr=opt.lr, betas=(0.95, 0.999))
+        elif opt.optimizer == 'sgd':  # 从头训练 lr=0.1 fine_tune lr=0.01
+            self.optimizer = optim.SGD(self.classifier.parameters(), lr=opt.lr, momentum=0.9, weight_decay=0.0005)
+        elif opt.optimizer == 'radam':
+            self.optimizer = RAdam(self.classifier.parameters(), lr=opt.lr, betas=(0.95, 0.999))
+        elif opt.optimizer == 'lookahead':
+            self.optimizer = Lookahead(self.classifier.parameters())
+        elif opt.optimizer == 'ranger':
+            self.optimizer = Ranger(self.classifier.parameters(), lr=opt.lr)
+        else:
+            raise NotImplementedError
 
         # load networks
         if opt.load:
