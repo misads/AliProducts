@@ -3,6 +3,7 @@ from dataloader.products import *
 from dataloader.ClassAwareSampler import ClassAwareSampler
 from torch.utils.data import DataLoader
 from options import opt
+import pdb
 
 ###################
 
@@ -19,13 +20,15 @@ train_dataset = TrainValDataset(train_list, scale=opt.scale, aug=opt.aug, max_si
 
 # stage2 training
 if opt.stage2:
-    train_dataloader = DataLoader(dataset=dataset, batch_size=opt.batch_size, shuffle=False,
-                                  sampler=ClassAwareSampler(dataset, num_samples_cls=opt.num_samples_cls),
+    train_dataloader = DataLoader(dataset=train_dataset, batch_size=opt.batch_size, shuffle=False,
+                                  sampler=ClassAwareSampler(train_dataset, num_samples_cls=opt.num_samples_cls),
                                   num_workers=4, drop_last=True)
+    #for data in train_dataloader:
+    #pdb.set_trace()
+
 # stage1 training
 else:
     train_dataloader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=4, drop_last=True)
-
 
 val_dataset = TrainValDataset(val_list, scale=opt.scale, aug=False, max_size=max_size, norm=opt.norm_input)
 val_dataloader = DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=1)

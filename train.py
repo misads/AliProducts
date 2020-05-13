@@ -215,7 +215,8 @@ try:
                 write_meters_loss(writer, 'train', model.avg_meters, global_step)
 
             mini_freq = 25000
-            if opt.step2 and global_step % mini_freq == 0:
+            if opt.stage2 and global_step % mini_freq == 0:
+                print()
                 mini_epoch = global_step // mini_freq + 1
                 model.save(mini_epoch)
                 eval_result = evaluate(model, val_dataloader, mini_epoch, writer, logger)
