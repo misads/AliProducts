@@ -214,6 +214,12 @@ try:
             if global_step % 1000 == 999:
                 write_meters_loss(writer, 'train', model.avg_meters, global_step)
 
+            mini_freq = 30000
+            if opt.step2 and global_step % mini_freq == 0:
+                mini_epoch = global_step // mini_freq + 1
+                model.save(mini_epoch)
+                eval_result = evaluate(model, val_dataloader, mini_epoch, writer, logger)
+
         logger.info(f'Train epoch: {epoch}, lr: {round(scheduler.get_lr()[0], 6) : .6f}, (loss) ' + str(model.avg_meters))
 
         if epoch % opt.save_freq == 0 or epoch == opt.epochs:  # 最后一个epoch要保存一下
