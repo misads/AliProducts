@@ -80,6 +80,9 @@ def parse_args():
 
 opt = parse_args()
 
+if opt.tag == 'random':
+    opt.tag = utils.hash()
+
 opt.device = 'cuda:' + opt.gpu_ids if torch.cuda.is_available() and opt.gpu_ids != '-1' else 'cpu'
 
 if opt.debug:
