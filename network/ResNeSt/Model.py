@@ -68,7 +68,10 @@ class Model(BaseModel):
             class_weight = pickle.load(f, encoding='bytes')
             class_weight = np.array(class_weight, dtype=np.float32)
             class_weight = torch.from_numpy(class_weight).to(opt.device)
-            self.criterionCE = nn.CrossEntropyLoss(weight=class_weight)
+            if opt.class_weight:
+                self.criterionCE = nn.CrossEntropyLoss(weight=class_weight)
+            else:
+                self.criterionCE = nn.CrossEntropyLoss()
 
     def update(self, input, label):
 

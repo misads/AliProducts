@@ -33,7 +33,9 @@ def parse_args():
     # batch size
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
 
+    # training options
     parser.add_argument('--stage2', action='store_true', help='Stage2 training. Long-tailed fine-tune.')
+    parser.add_argument('--class_weight', action='store_true', help='Different class weight.')
     parser.add_argument('--num_samples_cls', type=int, default=4, help='input batch size')
 
     # optimizer and scheduler
