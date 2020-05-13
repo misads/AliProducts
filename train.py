@@ -214,7 +214,7 @@ try:
             if global_step % 1000 == 999:
                 write_meters_loss(writer, 'train', model.avg_meters, global_step)
 
-            mini_freq = 30000
+            mini_freq = 25000
             if opt.step2 and global_step % mini_freq == 0:
                 mini_epoch = global_step // mini_freq + 1
                 model.save(mini_epoch)
