@@ -167,12 +167,13 @@ elif opt.scheduler == 'cyclic':
     scheduler = torch.optim.lr_scheduler.CyclicLR(optimizer, base_lr=opt.lr, max_lr=0.1 * opt.lr, step_size_up=opt.epochs // 10,
                                                   step_size_down=opt.epochs // 10)
 elif opt.scheduler == 'lambda':
-    def lambda_decay(epoch) -> float:
-        warm_epoch = int(0.1 * opt.epochs)
-        if epoch <= warm_epoch:
-            return epoch * 0.1 / warm_epoch
+    def lambda_decay(step) -> float:
+        base_lr = opt.lr
+        warm_steps = 500
+        if step <= warm_steps:
+            return step * base_lr / warm_steps
         else:
-            return 0.1 * 0.99 ** (epoch - warm_epoch)
+            return base_lr * 0.997 ** ((step - warm_steps) // 1000)
 
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda_decay)
 
@@ -207,19 +208,22 @@ try:
 
             pre_msg = 'Epoch:%d' % epoch
 
-            msg = '(loss) %s ETA: %s' % (str(model.avg_meters), utils.format_time(remaining))
+            msg = f'lr:{round(scheduler.get_lr()[0], 6) : .6f} (loss) {str(model.avg_meters)} ETA: {utils.format_time(remaining)}'
             utils.progress_bar(iteration, len(train_dataloader), pre_msg, msg)
             # print(pre_msg, msg)
 
             if global_step % 1000 == 999:
                 write_meters_loss(writer, 'train', model.avg_meters, global_step)
 
-            mini_freq = 25000
+            mini_freq = 100000
             if opt.stage2 and global_step % mini_freq == 0:
                 print()
                 mini_epoch = global_step // mini_freq + 1
                 model.save(mini_epoch)
                 eval_result = evaluate(model, val_dataloader, mini_epoch, writer, logger)
+
+            if opt.stage2 and opt.scheduler != 'None':
+                scheduler.step()
 
         logger.info(f'Train epoch: {epoch}, lr: {round(scheduler.get_lr()[0], 6) : .6f}, (loss) ' + str(model.avg_meters))
 
