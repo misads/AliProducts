@@ -168,12 +168,11 @@ elif opt.scheduler == 'cyclic':
                                                   step_size_down=opt.epochs // 10)
 elif opt.scheduler == 'lambda':
     def lambda_decay(step) -> float:
-        base_lr = opt.lr
         warm_steps = 500
         if step <= warm_steps:
-            return step * base_lr / warm_steps
+            return step  / warm_steps
         else:
-            return base_lr * 0.997 ** ((step - warm_steps) // 1000)
+            return 0.997 ** ((step - warm_steps) // 1000)
 
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda_decay)
 
