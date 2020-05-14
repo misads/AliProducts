@@ -170,7 +170,7 @@ elif opt.scheduler == 'lambda':
     def lambda_decay(step) -> float:
         warm_steps = 500
         if step <= warm_steps:
-            return step  / warm_steps
+            return step / warm_steps
         else:
             return 0.997 ** ((step - warm_steps) // 1000)
 
@@ -220,9 +220,6 @@ try:
                 mini_epoch = global_step // mini_freq + 1
                 model.save(mini_epoch)
                 eval_result = evaluate(model, val_dataloader, mini_epoch, writer, logger)
-
-            if opt.stage2 and opt.scheduler != 'None':
-                scheduler.step()
 
         logger.info(f'Train epoch: {epoch}, lr: {round(scheduler.get_lr()[0], 6) : .6f}, (loss) ' + str(model.avg_meters))
 
