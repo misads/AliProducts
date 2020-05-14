@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d0b4d4d5-407d-4287-8c0c-4e11725d9453" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/network/ResNeSt/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/ResNeSt/Model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/base_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/base_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/options/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/options/options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,10 +21,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
+            <state relative-caret-position="-1159">
               <caret line="139" selection-start-line="139" selection-end-line="139" />
               <folding>
                 <element signature="e#2627#2636#0" expanded="true" />
@@ -60,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/ResNeSt/Model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="84" column="12" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="12" />
+            <state relative-caret-position="316">
+              <caret line="91" column="55" selection-start-line="91" selection-start-column="55" selection-end-line="91" selection-end-column="55" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -180,12 +177,12 @@
         <option value="$PROJECT_DIR$/scheduler/__init__.py" />
         <option value="$PROJECT_DIR$/options/options.py" />
         <option value="$PROJECT_DIR$/network/base_model.py" />
-        <option value="$PROJECT_DIR$/network/ResNeSt/Model.py" />
         <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/network/ResNeSt/Model.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1" />
     <option name="y" value="24" />
     <option name="width" value="1680" />
@@ -400,24 +397,24 @@
       <workItem from="1589196030569" duration="3693000" />
       <workItem from="1589214933796" duration="1107000" />
       <workItem from="1589356419123" duration="9448000" />
-      <workItem from="1589424318094" duration="7350000" />
+      <workItem from="1589424318094" duration="7440000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76318000" />
+    <option name="totallyTimeSpent" value="76408000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="24" width="1680" height="963" extended-state="0" />
+    <frame x="1" y="23" width="1680" height="963" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23260073" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23260073" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.3295063" />
-      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.17680827" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.17680827" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3295063" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -841,16 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/ResNeSt/Model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="84" column="12" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/options/options.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
@@ -863,10 +850,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
+        <state relative-caret-position="-1159">
           <caret line="139" selection-start-line="139" selection-end-line="139" />
           <folding>
             <element signature="e#2627#2636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ResNeSt/Model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="91" column="55" selection-start-line="91" selection-start-column="55" selection-end-line="91" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
