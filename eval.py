@@ -25,10 +25,9 @@ import misc_utils as utils
 
 
 def evaluate(model, dataloader, epochs, writer, logger, data_name='val'):
-    if not opt.which_epoch:
-        save_root = os.path.join(opt.result_dir, opt.tag, str(epochs), data_name)
-    else:
-        save_root = os.path.join(opt.result_dir, opt.tag, str(opt.which_epoch), data_name)
+
+    save_root = os.path.join(opt.result_dir, opt.tag, str(epochs), data_name)
+
     utils.try_make_dir(save_root)
 
     correct = 0

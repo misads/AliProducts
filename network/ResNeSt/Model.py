@@ -107,7 +107,7 @@ class Model(BaseModel):
         save_dict['scheduler'] = self.scheduler.state_dict()
         save_dict['epoch'] = which_epoch
         torch.save(save_dict, save_path)
-        utils.color_print(f'Save checkpoint"{save_path}".', 3)
+        utils.color_print(f'Save checkpoint "{save_path}".', 3)
 
         # self.save_network(self.discriminitor, 'D', which_epoch)
 
