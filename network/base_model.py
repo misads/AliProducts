@@ -1,37 +1,26 @@
 import os
+from abc import abstractmethod
+
 import torch
 import sys
 
 from misc_utils import color_print
 from options import opt
 
+
 class BaseModel(torch.nn.Module):
     def __init__(self):
         super(BaseModel, self).__init__()
 
-    def set_input(self, input):
-        self.input = input
-
     def forward(self, x):
         pass
 
-    # used in test time, no backprop
-    def test(self):
+    @abstractmethod
+    def load(self, ckpt_path):
         pass
 
-    def get_image_paths(self):
-        pass
-
-    def optimize_parameters(self):
-        pass
-
-    def get_current_visuals(self):
-        return self.input
-
-    def get_current_errors(self):
-        return {}
-
-    def save(self, label):
+    @abstractmethod
+    def save(self, which_epoch):
         pass
 
     # helper saving function that can be used by subclasses
@@ -71,11 +60,7 @@ class BaseModel(torch.nn.Module):
                         if v.size() == model_dict[k].size():
                             model_dict[k] = v
 
-                    if sys.version_info >= (3, 0):
-                        not_initialized = set()
-                    else:
-                        from sets import Set
-                        not_initialized = Set()
+                    not_initialized = set()
 
                     for k, v in model_dict.items():
                         if k not in pretrained_dict or v.size() != pretrained_dict[k].size():
@@ -83,7 +68,4 @@ class BaseModel(torch.nn.Module):
 
                     print(sorted(not_initialized))
                     network.load_state_dict(model_dict)
-            
 
-    def update_learning_rate(self):
-        pass

@@ -41,7 +41,6 @@ def parse_args():
     # optimizer and scheduler
     parser.add_argument('--optimizer', choices=['adam', 'sgd', 'radam', 'lookahead', 'ranger'], default='ranger')
     parser.add_argument('--scheduler', choices=['cos', 'step', 'exp', 'cyclic', 'lambda', 'None'], default='cos')
-    parser.add_argument('--reset', action='store_true', help='reset epoch after loading checkpoint')
 
     # data argumentation
     parser.add_argument('--aug', action='store_true', help='Randomly scale, jitter, change hue, saturation and brightness')
@@ -67,7 +66,10 @@ def parse_args():
     # training options
     parser.add_argument('--debug', action='store_true', help='debug mode')
     parser.add_argument('--load', type=str, default=None, help='load checkpoint')
-    parser.add_argument('--which-epoch', type=int, default=None, help='which epoch to resume')
+    parser.add_argument('--resume', action='store_true', help='resume training, only used when --load')
+    parser.add_argument('--reset', action='store_true', help='reset training, only used when --load')
+
+    # parser.add_argument('--which-epoch', type=int, default=None, help='which epoch to resume')
     parser.add_argument('--epochs', '--max_epoch', type=int, default=5, help='epochs to train')
     parser.add_argument('--lr', type=float, default=0.0002, help='initial learning rate for adam')
 

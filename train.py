@@ -138,8 +138,8 @@ model = Model(opt)
 #     model = torch.nn.DataParallel(model, device_ids=opt.gpu_ids)
 model = model.to(device=opt.device)
 
-if opt.which_epoch and not opt.reset:
-    start_epoch = opt.which_epoch + 1
+if opt.load:
+    start_epoch = model.load(opt.load) + 1
 else:
     start_epoch = 1
 

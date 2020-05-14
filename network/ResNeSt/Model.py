@@ -48,11 +48,11 @@ class Model(BaseModel):
         self.scheduler = get_scheduler(opt, self.optimizer)
 
         # load networks
-        if opt.load:
-            pretrained_path = opt.load
-            self.load_network(self.classifier, 'G', opt.which_epoch, pretrained_path)
-            # if self.training:
-            #     self.load_network(self.discriminitor, 'D', opt.which_epoch, pretrained_path)
+        # if opt.load:
+        #     pretrained_path = opt.load
+        #     self.load_network(self.classifier, 'G', opt.which_epoch, pretrained_path)
+        # if self.training:
+        #     self.load_network(self.discriminitor, 'D', opt.which_epoch, pretrained_path)
 
         self.avg_meters = ExponentialMovingAverage(0.95)
         self.save_dir = os.path.join(opt.checkpoint_dir, opt.tag)
@@ -81,6 +81,20 @@ class Model(BaseModel):
 
     def forward(self, x):
         return self.classifier(x)
+
+    def load(self, ckpt_path):
+        load_dict = torch.load(ckpt_path, map_location=opt.device)
+        self.classifier.load_state_dict(load_dict['classifier'])
+        if opt.resume:
+            self.optimizer.load_state_dict(load_dict['optimizer'])
+            self.scheduler.load_state_dict(load_dict['scheduler'])
+            epoch = load_dict['epoch']
+            utils.color_print('Load checkpoint from %s, resume training.' % ckpt_path, 3)
+        else:
+            epoch = 0
+            utils.color_print('Load checkpoint from %s.' % ckpt_path, 3)
+
+        return epoch
 
     def save(self, which_epoch):
         # self.save_network(self.classifier, 'G', which_epoch)
