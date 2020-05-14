@@ -15,6 +15,7 @@ from torch_template.utils.torch_utils import ExponentialMovingAverage, print_net
 from optimizer import get_optimizer
 from scheduler import get_scheduler
 from options import opt
+import misc_utils as utils
 
 from .resnest_wrapper import Classifier
 
@@ -92,6 +93,7 @@ class Model(BaseModel):
         save_dict['scheduler'] = self.scheduler.state_dict()
         save_dict['epoch'] = which_epoch
         torch.save(save_dict, save_path)
+        utils.color_print(f'Save checkpoint"{save_path}".', 3)
 
         # self.save_network(self.discriminitor, 'D', which_epoch)
 
