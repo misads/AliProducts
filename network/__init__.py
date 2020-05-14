@@ -3,6 +3,7 @@ from .ResNeXt.Model import Model as ResNeXt
 from .ResNeSt.Model import Model as ResNeSt
 from .iResNet.Model import Model as iResNet
 from .EfficientNet.Model import Model as Efficient
+from .MetaEmbedding.Model import Model as MetaEmbedding
 
 models = {
     'default': Default,  # if --model is not specified
@@ -16,6 +17,7 @@ models = {
     'iResNet1001': iResNet,
     'EfficientNet-B5': Efficient,
     'EfficientNet-B7': Efficient,
+    'MetaEmbedding': MetaEmbedding,  # ResNeST101 + MetaEmbedding
 
 }
 

@@ -147,9 +147,9 @@ model.train()
 
 # Start training
 print('Start training...')
-start_step = start_epoch * len(train_dataloader)
+start_step = (start_epoch - 1) * len(train_dataloader)
 global_step = start_step
-total_steps = (opt.epochs + 1) * len(train_dataloader)
+total_steps = opt.epochs * len(train_dataloader)
 start = time.time()
 
 #####################
