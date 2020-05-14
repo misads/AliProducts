@@ -40,11 +40,13 @@ class Classifier(nn.Module):
         # self.network.fc = self.clf.fc_hallucinator
 
     def forward(self, input, centroids):
-        x = input
+        x = self.network(input)
+
+        y = self.clf(x, centroids)
+
+        return y  # logits, [direct_feature, infused_feature]
 
 
-        y = self.network(x)
-        return y
 
 
 # a = Classifier()

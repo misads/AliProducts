@@ -10,8 +10,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from network.base_model import BaseModel
+from collections import OrderedDict
 from torch_template.utils.torch_utils import ExponentialMovingAverage, print_network
-from optimizer import RAdam, Ranger, Lookahead
+from optimizer import get_optimizer
+from scheduler import get_scheduler
 from options import opt
 
 from .resnest_wrapper import Classifier
@@ -41,18 +43,8 @@ class Model(BaseModel):
 
         print_network(self.classifier)
 
-        if opt.optimizer == 'adam':
-            self.optimizer = optim.Adam(self.classifier.parameters(), lr=opt.lr, betas=(0.95, 0.999))
-        elif opt.optimizer == 'sgd':  # 从头训练 lr=0.1 fine_tune lr=0.01
-            self.optimizer = optim.SGD(self.classifier.parameters(), lr=opt.lr, momentum=0.9, weight_decay=0.0005)
-        elif opt.optimizer == 'radam':
-            self.optimizer = RAdam(self.classifier.parameters(), lr=opt.lr, betas=(0.95, 0.999))
-        elif opt.optimizer == 'lookahead':
-            self.optimizer = Lookahead(self.classifier.parameters())
-        elif opt.optimizer == 'ranger':
-            self.optimizer = Ranger(self.classifier.parameters(), lr=opt.lr)
-        else:
-            raise NotImplementedError
+        self.optimizer = get_optimizer(opt, self.classifier)
+        self.scheduler = get_scheduler(opt, self.optimizer)
 
         # load networks
         if opt.load:
@@ -90,16 +82,16 @@ class Model(BaseModel):
         return self.classifier(x)
 
     def save(self, which_epoch):
-        self.save_network(self.classifier, 'G', which_epoch)
+        # self.save_network(self.classifier, 'G', which_epoch)
+        save_filename = f'{which_epoch}_{opt.model}.pt'
+        save_path = os.path.join(self.save_dir, save_filename)
+        save_dict = OrderedDict()
+        save_dict['classifier'] = self.classifier.state_dict()
+        # save_dict['discriminitor'] = self.discriminitor.state_dict()
+        save_dict['optimizer'] = self.optimizer.state_dict()
+        save_dict['scheduler'] = self.scheduler.state_dict()
+        save_dict['epoch'] = which_epoch
+        torch.save(save_dict, save_path)
+
         # self.save_network(self.discriminitor, 'D', which_epoch)
 
-    def update_learning_rate(self):
-        lrd = self.opt.lr / self.opt.niter_decay
-        lr = self.old_lr - lrd
-        # for param_group in self.d_optimizer.param_groups:
-        #     param_group['lr'] = lr
-        for param_group in self.optimizer.param_groups:
-            param_group['lr'] = lr
-        if self.opt.verbose:
-            print('update learning rate: %f -> %f' % (self.old_lr, lr))
-        self.old_lr = lr

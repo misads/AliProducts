@@ -1,5 +1,6 @@
 import pdb
 
+from collections import OrderedDict
 import numpy as np
 import pickle
 import torch
@@ -59,7 +60,26 @@ class Model(BaseModel):
         # load networks
         if opt.load:
             pretrained_path = opt.load
+            save_filename = '%s_net_%s.pt' % (opt.which_epoch, 'G')
+            save_path = os.path.join(pretrained_path, save_filename)
+            state_dict = torch.load(save_path, map_location=opt.device)
+            fc_state = OrderedDict()
+            fc_state['network.fc.weight'] = state_dict['network.fc.weight']
+            fc_state['network.fc.bias'] = state_dict['network.fc.bias']
+            state_dict.pop('network.fc.weight')
+            state_dict.pop('network.fc.bias')
+            model_dict = self.classifier.state_dict()
+            for k, v in state_dict:
+                if v.size() == model_dict[k].size():
+                    model_dict[k] = v
+
+            fc_dict = self.classifier.clf.fc_hallucinator.state_dict()
+            for k, v in fc_state:
+                if v.size() == model_dict[k].size():
+                    fc_dict[k] = v
+
             self.load_network(self.classifier, 'G', opt.which_epoch, pretrained_path)
+
             # if self.training:
             #     self.load_network(self.discriminitor, 'D', opt.which_epoch, pretrained_path)
 
