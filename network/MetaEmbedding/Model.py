@@ -88,7 +88,7 @@ class Model(BaseModel):
 
     def forward(self, x):
         direct_feature = self.direct_feature(x)
-        y = self.direct_feature(direct_feature)
+        y = self.classifier(direct_feature)
         return y
 
     def load(self, ckpt_path):
@@ -98,6 +98,8 @@ class Model(BaseModel):
             classifier_dict = OrderedDict()
             classifier_dict['fc.weight'] = direct_feature.pop('network.fc.weight')
             classifier_dict['fc.bias'] = direct_feature.pop('network.fc.bias')
+            self.direct_feature.load_state_dict(direct_feature)
+            self.classifier.load_state_dict(classifier_dict)
 
         else:  # 新的checkpoint
             self.direct_feature.load_state_dict(load_dict['direct_feature'])
