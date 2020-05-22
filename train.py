@@ -140,7 +140,7 @@ model = model.to(device=opt.device)
 
 if opt.load:
     load_epoch = model.load(opt.load)
-    start_epoch = load_epoch + 1 if opt.resume else 1
+    start_epoch = load_epoch + 1 if opt.resume and not opt.sampler else 1
 else:
     start_epoch = 1
 

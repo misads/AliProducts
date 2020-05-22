@@ -36,7 +36,7 @@ def parse_args():
     # training options
     parser.add_argument('--sampler', action='store_true', help='Class Aware Sampler.')
     parser.add_argument('--class_weight', action='store_true', help='Different class weight.')
-    parser.add_argument('--num_samples_cls', type=int, default=4, help='input batch size')
+    parser.add_argument('--num_samples_cls', type=int, default=4, help='how many samples from a class')
 
     # optimizer and scheduler
     parser.add_argument('--optimizer', choices=['adam', 'sgd', 'radam', 'lookahead', 'ranger'], default='ranger')
