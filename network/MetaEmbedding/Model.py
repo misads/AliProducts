@@ -88,7 +88,7 @@ class Model(BaseModel):
 
     def forward(self, x):
         direct_feature = self.direct_feature(x)
-        y = direct_feature(direct_feature)
+        y = self.direct_feature(direct_feature)
         return y
 
     def load(self, ckpt_path):
