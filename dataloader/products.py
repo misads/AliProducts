@@ -85,7 +85,7 @@ class TrainValDataset(dataset.Dataset):
 
     """
 
-    def __init__(self, file_list, scale=None, crop=None, aug=True, norm=False, max_size=None):
+    def __init__(self, file_list, scale=None, crop=None, aug=False, norm=False, max_size=None):
         self.im_names = []
         self.labels = []
         with open(file_list, 'r') as f:
@@ -112,7 +112,7 @@ class TrainValDataset(dataset.Dataset):
         no_transform = transforms.Lambda(lambda x: x)
 
         self.transform = transforms.Compose([
-            transforms.RandomResizedCrop(scale),
+            transforms.RandomResizedCrop((scale, scale)),
             transforms.RandomHorizontalFlip() if aug else no_transform,
             transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0) if aug else no_transform,
             transforms.ToTensor(),
@@ -136,18 +136,18 @@ class TrainValDataset(dataset.Dataset):
         input = Image.open(self.im_names[index]).convert("RGB")
         label = self.labels[index]
 
-        input = self.transform(input)
-        # if self.scale:
-        #     input = F.resize(input, (self.scale, self.scale))
+        # input = self.transform(input)
+        if self.scale:
+            input = F.resize(input, (self.scale, self.scale))
         #
-        # if self.aug:
-        #     input = data_augmentation(input, scale=self.scale, degree=0, jitter=0.3, hue=0.1, saturation=1.5, val=1.5)
-        #     # input = input.transpose(self.trans_dict[r])
+        if self.aug:
+            input = data_augmentation(input, scale=self.scale, degree=0, jitter=0.3, hue=0.1, saturation=1.5, val=1.5)
+            # input = input.transpose(self.trans_dict[r])
         #
-        # if self.norm:
-        #     input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
-        # else:
-        #     input = F.to_tensor(input)
+        if self.norm:
+            input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+        else:
+            input = F.to_tensor(input)
 
         return {'input': input, 'label': label, 'path': self.im_names[index]}
 
@@ -188,7 +188,7 @@ class TestDataset(dataset.Dataset):
         no_transform = transforms.Lambda(lambda x: x)
 
         self.transform = transforms.Compose([
-            transforms.Resize(scale),
+            transforms.Resize((scale, scale)),
             # transforms.CenterCrop(256),
             transforms.ToTensor(),
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]) if norm else no_transform
@@ -198,14 +198,14 @@ class TestDataset(dataset.Dataset):
 
         input = Image.open(self.im_names[index]).convert("RGB")
 
-        input = self.transform(input)
-        # if self.scale:
-        #     input = F.resize(input, (self.scale, self.scale))
+        # input = self.transform(input)
+        if self.scale:
+            input = F.resize(input, (self.scale, self.scale))
         #
-        # if self.norm:
-        #     input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
-        # else:
-        #     input = F.to_tensor(input)
+        if self.norm:
+            input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+        else:
+            input = F.to_tensor(input)
 
         return {'input': input, 'path': self.im_names[index]}
 
