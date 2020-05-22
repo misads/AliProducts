@@ -76,6 +76,8 @@ data_transforms = {
 
 - TTA
   - [ ] 放大、色相、饱和度、亮度
+  - [ ] `flip`
+  - [ ] 多尺度测试
   - [ ] ttach库
   
 - 其他Tricks

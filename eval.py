@@ -68,19 +68,22 @@ if __name__ == '__main__':
     from torch_template.utils.torch_utils import create_summary_writer
 
     if not opt.load:
-        print('Usage: eval.py [--tag TAG] --load LOAD --which-epoch WHICH_EPOCH')
-        raise_exception('eval.py: the following arguments are required: --load --which-epoch')
-
-    logger = init_log(training=False)
-    log_root = os.path.join(opt.result_dir, opt.tag, str(opt.which_epoch))
-    utils.try_make_dir(log_root)
+        print('Usage: eval.py [--tag TAG] --load LOAD')
+        raise_exception('eval.py: the following arguments are required: --load')
 
     Model = get_model(opt.model)
     model = Model(opt)
-    model = model.cuda(device=opt.device)
+    model = model.to(device=opt.device)
+
+    opt.which_epoch = model.load(opt.load)
 
     model.eval()
+
+    log_root = os.path.join(opt.result_dir, opt.tag, str(opt.which_epoch))
+    utils.try_make_dir(log_root)
+
     writer = create_summary_writer(log_root)
 
+    logger = init_log(training=False)
     evaluate(model, dl.val_dataloader, opt.which_epoch, writer, logger, 'val')
 

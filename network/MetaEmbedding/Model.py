@@ -12,99 +12,70 @@ import torch.nn.functional as F
 
 from network.base_model import BaseModel
 from torch_template.utils.torch_utils import ExponentialMovingAverage, print_network
-from optimizer import RAdam, Ranger, Lookahead
+from optimizer import get_optimizer
+from scheduler import get_scheduler
 from options import opt
 
-from .resnest_wrapper import Classifier
-
+from .meta_embedding import DirectFeature, Classifier
+import misc_utils as utils
 
 #  criterionCE = nn.CrossEntropyLoss()
-
-
-def weights_init(m):
-    classname = m.__class__.__name__
-    if classname.find('Conv') != -1:
-        m.weight.data.normal_(0.0, 0.02)
-    elif classname.find('BatchNorm2d') != -1:
-        m.weight.data.normal_(1.0, 0.02)
-        m.bias.data.fill_(0)
 
 
 class Model(BaseModel):
     def __init__(self, opt):
         super(Model, self).__init__()
         self.opt = opt
-        self.classifier = Classifier(opt.model)  #.cuda(device=opt.device)
+        self.direct_feature = DirectFeature(opt.model)
+        feature_nums = self.direct_feature.get_feature_num()
+        self.classifier = Classifier(feature_nums)  #.cuda(device=opt.device)
 
-
-        #####################
-        #    Init weights
-        #####################
-        # self.classifier.apply(weights_init)
-
+        print_network(self.direct_feature)
         print_network(self.classifier)
 
-        if opt.optimizer == 'adam':
-            self.optimizer = optim.Adam(self.classifier.parameters(), lr=opt.lr, betas=(0.95, 0.999))
-        elif opt.optimizer == 'sgd':  # 从头训练 lr=0.1 fine_tune lr=0.01
-            self.optimizer = optim.SGD(self.classifier.parameters(), lr=opt.lr, momentum=0.9, weight_decay=0.0005)
-        elif opt.optimizer == 'radam':
-            self.optimizer = RAdam(self.classifier.parameters(), lr=opt.lr, betas=(0.95, 0.999))
-        elif opt.optimizer == 'lookahead':
-            self.optimizer = Lookahead(self.classifier.parameters())
-        elif opt.optimizer == 'ranger':
-            self.optimizer = Ranger(self.classifier.parameters(), lr=opt.lr)
-        else:
-            raise NotImplementedError
+        self.optimizer = get_optimizer(opt, self.classifier)
+        self.scheduler = get_scheduler(opt, self.optimizer)
 
-        # load networks
-        if opt.load:
-            pretrained_path = opt.load
-            save_filename = '%s_net_%s.pt' % (opt.which_epoch, 'G')
-            save_path = os.path.join(pretrained_path, save_filename)
-            state_dict = torch.load(save_path, map_location=opt.device)
-            fc_state = OrderedDict()
-            fc_state['network.fc.weight'] = state_dict['network.fc.weight']
-            fc_state['network.fc.bias'] = state_dict['network.fc.bias']
-            state_dict.pop('network.fc.weight')
-            state_dict.pop('network.fc.bias')
-            model_dict = self.classifier.state_dict()
-            for k, v in state_dict:
-                if v.size() == model_dict[k].size():
-                    model_dict[k] = v
+        # # load networks
+        # if opt.load:
+        #     pretrained_path = opt.load
+        #     save_filename = '%s_net_%s.pt' % (opt.which_epoch, 'G')
+        #     save_path = os.path.join(pretrained_path, save_filename)
+        #     state_dict = torch.load(save_path, map_location=opt.device)
+        #     fc_state = OrderedDict()
+        #     fc_state['network.fc.weight'] = state_dict['network.fc.weight']
+        #     fc_state['network.fc.bias'] = state_dict['network.fc.bias']
+        #     state_dict.pop('network.fc.weight')
+        #     state_dict.pop('network.fc.bias')
+        #     model_dict = self.classifier.state_dict()
+        #     for k, v in state_dict:
+        #         if v.size() == model_dict[k].size():
+        #             model_dict[k] = v
+        #
+        #     fc_dict = self.classifier.clf.fc_hallucinator.state_dict()
+        #     for k, v in fc_state:
+        #         if v.size() == model_dict[k].size():
+        #             fc_dict[k] = v
+        #
+        #     self.load_network(self.classifier, 'G', opt.which_epoch, pretrained_path)
+        #
+        #     # if self.training:
+        #     #     self.load_network(self.discriminitor, 'D', opt.which_epoch, pretrained_path)
 
-            fc_dict = self.classifier.clf.fc_hallucinator.state_dict()
-            for k, v in fc_state:
-                if v.size() == model_dict[k].size():
-                    fc_dict[k] = v
-
-            self.load_network(self.classifier, 'G', opt.which_epoch, pretrained_path)
-
-            # if self.training:
-            #     self.load_network(self.discriminitor, 'D', opt.which_epoch, pretrained_path)
-
-        self.init_criterions()
-        if self.memory['init_centroids']:
-            self.criterions['FeatureLoss'].centroids.data = \
-                self.centroids_cal(self.data['train_plain'])
-
+        # self.init_criterions()
+        # if self.memory['init_centroids']:
+        #     self.criterions['FeatureLoss'].centroids.data = \
+        #         self.centroids_cal(self.data['train_plain'])
 
         self.avg_meters = ExponentialMovingAverage(0.95)
         self.save_dir = os.path.join(opt.checkpoint_dir, opt.tag)
 
         # different weight for different classes
-        with open('datasets/class_weight.pkl', 'rb') as f:
-            class_weight = pickle.load(f, encoding='bytes')
-            class_weight = np.array(class_weight, dtype=np.float32)
-            class_weight = torch.from_numpy(class_weight).to(opt.device)
-            if opt.class_weight:
-                self.criterionCE = nn.CrossEntropyLoss(weight=class_weight)
-            else:
-                self.criterionCE = nn.CrossEntropyLoss()
+        self.criterionCE = nn.CrossEntropyLoss()
 
     def update(self, input, label):
 
-        predicted = self.classifier(input)
+        predicted = self.forward(input)
         loss = self.criterionCE(predicted, label)
 
         self.avg_meters.update({'Cross Entropy': loss.item()})
@@ -116,19 +87,45 @@ class Model(BaseModel):
         return {'predicted': predicted}
 
     def forward(self, x):
-        return self.classifier(x)
+        direct_feature = self.direct_feature(x)
+        y = direct_feature(direct_feature)
+        return y
+
+    def load(self, ckpt_path):
+        load_dict = torch.load(ckpt_path, map_location=opt.device)
+        if 'direct_feature' not in load_dict:  # 旧的checkpoint
+            direct_feature = load_dict['classifier']
+            classifier_dict = OrderedDict()
+            classifier_dict['fc.weight'] = direct_feature.pop('network.fc.weight')
+            classifier_dict['fc.bias'] = direct_feature.pop('network.fc.bias')
+
+        else:  # 新的checkpoint
+            self.direct_feature.load_state_dict(load_dict['direct_feature'])
+            self.classifier.load_state_dict(load_dict['classifier'])
+
+        if opt.resume:
+            self.optimizer.load_state_dict(load_dict['optimizer'])
+            self.scheduler.load_state_dict(load_dict['scheduler'])
+            epoch = load_dict['epoch']
+            utils.color_print('Load checkpoint from %s, resume training.' % ckpt_path, 3)
+        else:
+            epoch = load_dict['epoch']
+            utils.color_print('Load checkpoint from %s.' % ckpt_path, 3)
+
+        return epoch
 
     def save(self, which_epoch):
-        self.save_network(self.classifier, 'G', which_epoch)
-        # self.save_network(self.discriminitor, 'D', which_epoch)
+        # self.save_network(self.classifier, 'G', which_epoch)
+        save_filename = f'{which_epoch}_{opt.model}.pt'
+        save_path = os.path.join(self.save_dir, save_filename)
+        save_dict = OrderedDict()
+        save_dict['direct_feature'] = self.direct_feature.state_dict()
+        save_dict['classifier'] = self.classifier.state_dict()
+        # save_dict['discriminitor'] = self.discriminitor.state_dict()
+        save_dict['optimizer'] = self.optimizer.state_dict()
+        save_dict['scheduler'] = self.scheduler.state_dict()
+        save_dict['epoch'] = which_epoch
+        torch.save(save_dict, save_path)
+        utils.color_print(f'Save checkpoint "{save_path}".', 3)
 
-    def update_learning_rate(self):
-        lrd = self.opt.lr / self.opt.niter_decay
-        lr = self.old_lr - lrd
-        # for param_group in self.d_optimizer.param_groups:
-        #     param_group['lr'] = lr
-        for param_group in self.optimizer.param_groups:
-            param_group['lr'] = lr
-        if self.opt.verbose:
-            print('update learning rate: %f -> %f' % (self.old_lr, lr))
-        self.old_lr = lr
+        # self.save_network(self.discriminitor, 'D', which_epoch)

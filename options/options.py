@@ -34,7 +34,7 @@ def parse_args():
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
 
     # training options
-    parser.add_argument('--stage2', action='store_true', help='Stage2 training. Long-tailed fine-tune.')
+    parser.add_argument('--sampler', action='store_true', help='Class Aware Sampler.')
     parser.add_argument('--class_weight', action='store_true', help='Different class weight.')
     parser.add_argument('--num_samples_cls', type=int, default=4, help='input batch size')
 
@@ -60,8 +60,8 @@ def parse_args():
     parser.add_argument('--init', type=str, default=None, help='{normal, xavier, kaiming, orthogonal}')
 
     # loss weight
-    parser.add_argument('--weight_ssim', type=float, default=1.1)  # SSIM loss
-    parser.add_argument('--weight_l1', type=float, default=0.75)  # l1 loss
+    parser.add_argument('--weight_ce', type=float, default=1.)  # Cross Entropy
+    parser.add_argument('--weight_range', type=float, default=0.)  # Range Loss
 
     # training options
     parser.add_argument('--debug', action='store_true', help='debug mode')
@@ -71,7 +71,7 @@ def parse_args():
 
     # parser.add_argument('--which-epoch', type=int, default=None, help='which epoch to resume')
     parser.add_argument('--epochs', '--max_epoch', type=int, default=5, help='epochs to train')
-    parser.add_argument('--lr', type=float, default=0.0002, help='initial learning rate for adam')
+    parser.add_argument('--lr', type=float, default=0.0001, help='initial learning rate for adam')
 
     parser.add_argument('--save_freq', type=int, default=1, help='freq to save models')
     parser.add_argument('--eval_freq', '--val_freq', type=int, default=1, help='freq to eval models')

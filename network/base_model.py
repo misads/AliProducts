@@ -23,6 +23,10 @@ class BaseModel(torch.nn.Module):
     def save(self, which_epoch):
         pass
 
+    @abstractmethod
+    def update(self, *args, **kwargs):
+        pass
+
     # helper saving function that can be used by subclasses
     def save_network(self, network, network_label, epoch_label):
         save_filename = '%s_net_%s.pt' % (epoch_label, network_label)

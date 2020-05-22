@@ -139,7 +139,8 @@ model = Model(opt)
 model = model.to(device=opt.device)
 
 if opt.load:
-    start_epoch = model.load(opt.load) + 1
+    load_epoch = model.load(opt.load)
+    start_epoch = load_epoch + 1 if opt.resume else 1
 else:
     start_epoch = 1
 
@@ -198,7 +199,7 @@ try:
                 write_meters_loss(writer, 'train', model.avg_meters, global_step)
 
             mini_freq = 100000
-            if opt.stage2 and global_step % mini_freq == 0:
+            if opt.sampler and global_step % mini_freq == 0:
                 print()
                 mini_epoch = global_step // mini_freq + 1
                 model.save(mini_epoch)
