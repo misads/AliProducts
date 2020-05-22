@@ -13,9 +13,7 @@ from .resnest import resnest101, resnest200
 classes = 50030
 
 arch_dict = {
-    'ResNeSt101': resnest101,
-    'ResNeSt200': resnest200
-
+    'MetaEmbedding': resnest101,
 }
 
 

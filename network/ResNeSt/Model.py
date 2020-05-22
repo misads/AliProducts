@@ -91,7 +91,7 @@ class Model(BaseModel):
             epoch = load_dict['epoch']
             utils.color_print('Load checkpoint from %s, resume training.' % ckpt_path, 3)
         else:
-            epoch = 0
+            epoch = load_dict['epoch']
             utils.color_print('Load checkpoint from %s.' % ckpt_path, 3)
 
         return epoch
