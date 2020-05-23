@@ -18,7 +18,7 @@ from options import opt
 import misc_utils as utils
 
 from .resnest_wrapper import Classifier
-
+from loss import criterionRange
 
 #  criterionCE = nn.CrossEntropyLoss()
 
@@ -70,6 +70,11 @@ class Model(BaseModel):
 
         predicted = self.classifier(input)
         loss = self.criterionCE(predicted, label)
+
+        if opt.weight_range:
+            range_loss = criterionRange(predicted, label) * opt.weight_range
+            loss += range_loss
+            self.avg_meters.update({'Range': range_loss.item()})
 
         self.avg_meters.update({'Cross Entropy': loss.item()})
 

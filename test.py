@@ -36,6 +36,7 @@ model = Model(opt)
 model = model.cuda(device=opt.device)
 model.eval()
 
+load_epoch = model.load(opt.load)
 
 for i, data in enumerate(dl.test_dataloader):
     print('Testing image %d' % i)
