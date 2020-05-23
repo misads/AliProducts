@@ -69,7 +69,8 @@ class Model(BaseModel):
     def update(self, input, label):
 
         predicted = self.classifier(input)
-        loss = self.criterionCE(predicted, label)
+        loss_ce = self.criterionCE(predicted, label)
+        loss = loss_ce
 
         if opt.weight_range:
             _, _, range_loss = criterionRange(predicted, label)
@@ -77,7 +78,7 @@ class Model(BaseModel):
             loss += range_loss
             self.avg_meters.update({'Range': range_loss.item()})
 
-        self.avg_meters.update({'Cross Entropy': loss.item()})
+        self.avg_meters.update({'Cross Entropy': loss_ce.item()})
 
         self.optimizer.zero_grad()
         loss.backward()

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0b4d4d5-407d-4287-8c0c-4e11725d9453" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network/ResNeSt/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/ResNeSt/Model.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loss/rangeloss.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="228" lean-forward="true" selection-start-line="228" selection-end-line="228" />
+            <state relative-caret-position="410">
+              <caret line="233" lean-forward="true" selection-start-line="233" selection-end-line="233" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -112,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/ResNeSt/Model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="74" column="39" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
+            <state relative-caret-position="399">
+              <caret line="83" column="23" lean-forward="true" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -164,8 +163,8 @@
       <find>num_samples_cls</find>
       <find>local_dist</find>
       <find>use_gpu</find>
-      <find>cuda()</find>
       <find>weight_range</find>
+      <find>cuda()</find>
     </findStrings>
     <replaceStrings>
       <replace>TrainValDataset</replace>
@@ -485,12 +484,12 @@
       <workItem from="1589597224883" duration="2088000" />
       <workItem from="1590080661089" duration="2038000" />
       <workItem from="1590114978589" duration="2752000" />
-      <workItem from="1590201730673" duration="2238000" />
+      <workItem from="1590201730673" duration="2430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98179000" />
+    <option name="totallyTimeSpent" value="98371000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -506,12 +505,12 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24908425" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24908425" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.3295063" />
-      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.26291618" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.26291618" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3295063" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -947,13 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/options/options.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
@@ -964,22 +956,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/ResNeSt/Model.py">
+    <entry file="file://$PROJECT_DIR$/loss/rangeloss.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="74" column="39" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
+        <state relative-caret-position="410">
+          <caret line="233" lean-forward="true" selection-start-line="233" selection-end-line="233" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loss/rangeloss.py">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="228" lean-forward="true" selection-start-line="228" selection-end-line="228" />
+        <state relative-caret-position="146">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ResNeSt/Model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="83" column="23" lean-forward="true" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
