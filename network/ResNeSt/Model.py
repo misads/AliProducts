@@ -72,7 +72,8 @@ class Model(BaseModel):
         loss = self.criterionCE(predicted, label)
 
         if opt.weight_range:
-            range_loss = criterionRange(predicted, label) * opt.weight_range
+            _, _, range_loss = criterionRange(predicted, label)
+            range_loss = range_loss * opt.weight_range
             loss += range_loss
             self.avg_meters.update({'Range': range_loss.item()})
 
