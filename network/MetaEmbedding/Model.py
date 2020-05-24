@@ -76,6 +76,7 @@ class Model(BaseModel):
 
             for data in dataloader:
                 inputs, labels = data['input'], data['label']
+                inputs = inputs.to(opt.device)
                 direct_features = self.direct_feature(inputs)
                 for i in range(len(labels)):
                     label = labels[i]
