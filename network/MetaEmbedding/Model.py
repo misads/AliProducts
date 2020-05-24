@@ -111,8 +111,8 @@ class Model(BaseModel):
         if 'direct_feature' not in load_dict:  # 旧的checkpoint
             direct_feature = load_dict['classifier']
             classifier_dict = OrderedDict()
-            classifier_dict['fc.weight'] = direct_feature.pop('network.fc.weight')
-            classifier_dict['fc.bias'] = direct_feature.pop('network.fc.bias')
+            classifier_dict['weight'] = direct_feature.pop('network.fc.weight')
+            classifier_dict['bias'] = direct_feature.pop('network.fc.bias')
             self.direct_feature.load_state_dict(direct_feature)
             self.meta_embedding.fc_hallucinator.load_state_dict(classifier_dict)
             # 如果是从stage1 load的，计算centroids
