@@ -86,7 +86,6 @@ class Model(BaseModel):
         # Average summed features with class count
         centroids /= torch.tensor(self.class_count(train_dataset)).float().unsqueeze(1).to(opt.device)  #class count为每一类的样本数，需要单独写。
         self.mem = centroids
-        pdb.set_trace()
 
     def update(self, input, label):
 
@@ -123,7 +122,7 @@ class Model(BaseModel):
         else:  # 新的checkpoint
             self.direct_feature.load_state_dict(load_dict['direct_feature'])
             self.meta_embedding.load_state_dict(load_dict['meta_embedding'])
-            self.mem.load_state_dict(load_dict['centroids'])
+            self.mem = load_dict['centroids']
 
         if opt.resume:
             self.optimizer.load_state_dict(load_dict['optimizer'])
@@ -142,7 +141,7 @@ class Model(BaseModel):
         save_dict = OrderedDict()
         save_dict['direct_feature'] = self.direct_feature.state_dict()
         save_dict['meta_embedding'] = self.meta_embedding.state_dict()
-        save_dict['centroids'] = self.mem.state_dict()
+        save_dict['centroids'] = self.mem
 
         save_dict['optimizer'] = self.optimizer.state_dict()
         save_dict['scheduler'] = self.scheduler.state_dict()
