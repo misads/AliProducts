@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0b4d4d5-407d-4287-8c0c-4e11725d9453" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataloader/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataloader/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataloader/dataloaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataloader/dataloaders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/MetaEmbedding/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/MetaEmbedding/Model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network/MetaEmbedding/meta_embedding.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/MetaEmbedding/meta_embedding.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,10 +33,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/MetaEmbedding/Model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="44">
               <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -88,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/MetaEmbedding/MetaEmbeddingClassifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="243">
               <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
@@ -97,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/MetaEmbedding/meta_embedding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="58" column="28" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="28" />
+            <state relative-caret-position="340">
+              <caret line="60" column="45" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -226,10 +222,10 @@
         <option value="$PROJECT_DIR$/loss/__init__.py" />
         <option value="$PROJECT_DIR$/network/ResNeSt/Model.py" />
         <option value="$PROJECT_DIR$/network/MetaEmbedding/MetaEmbeddingClassifier.py" />
-        <option value="$PROJECT_DIR$/network/MetaEmbedding/meta_embedding.py" />
         <option value="$PROJECT_DIR$/dataloader/dataloaders.py" />
         <option value="$PROJECT_DIR$/dataloader/__init__.py" />
         <option value="$PROJECT_DIR$/network/MetaEmbedding/Model.py" />
+        <option value="$PROJECT_DIR$/network/MetaEmbedding/meta_embedding.py" />
       </list>
     </option>
   </component>
@@ -493,12 +489,12 @@
       <workItem from="1590114978589" duration="2752000" />
       <workItem from="1590201730673" duration="4246000" />
       <workItem from="1590288192934" duration="2000" />
-      <workItem from="1590293084997" duration="4356000" />
+      <workItem from="1590293084997" duration="4498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104545000" />
+    <option name="totallyTimeSpent" value="104687000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -514,12 +510,12 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25518927" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25518927" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.3295063" />
-      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.42250288" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.347876" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3295063" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -880,16 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/MetaEmbedding/MetaEmbeddingClassifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2019.1/python_stubs/-1199943126/itertools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -941,13 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/MetaEmbedding/meta_embedding.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="58" column="28" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataloader/dataloaders.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -990,11 +969,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/MetaEmbedding/Model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="44">
           <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/MetaEmbedding/MetaEmbeddingClassifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/MetaEmbedding/meta_embedding.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="60" column="45" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
         </state>
       </provider>
     </entry>

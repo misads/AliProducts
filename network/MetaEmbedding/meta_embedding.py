@@ -58,7 +58,7 @@ class MetaEmbedding(nn.Module):
         self.num_classes = num_classes
         self.fc_hallucinator = nn.Linear(feat_dim, num_classes)
         self.fc_selector = nn.Linear(feat_dim, feat_dim)
-        self.classifier = Classifier(feat_dim, num_classes)
+        self.classifier = Classifier(feat_dim)
 
     def forward(self, x, centroids, *args):
         # storing direct feature
