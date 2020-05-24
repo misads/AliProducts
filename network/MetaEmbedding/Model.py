@@ -38,9 +38,8 @@ class Model(BaseModel):
         super(Model, self).__init__()
         self.opt = opt
         self.direct_feature = DirectFeature(opt.model)
-        feature_nums = self.direct_feature.get_feature_num()
-
-        self.meta_embedding = MetaEmbedding(feature_nums, 50030)
+        self.feature_nums = self.direct_feature.get_feature_num()
+        self.meta_embedding = MetaEmbedding(self.feature_nums, 50030)
 
         print_network(self.direct_feature)
         print_network(self.meta_embedding)
