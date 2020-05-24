@@ -45,8 +45,11 @@ class Model(BaseModel):
         print_network(self.meta_embedding)
 
         # TODO: 这里学习率是不是可以调成 direct_feature 0.01 meta_embedding 0.1
-        self.optimizer = optim.SGD(chain(self.direct_feature.parameters(), self.meta_embedding.parameters()),
-                                   lr=0.01, momentum=0.9, weight_decay=0.0005)
+        # self.optimizer = optim.SGD(chain(self.direct_feature.parameters(), self.meta_embedding.parameters()),
+        #                            lr=0.01, momentum=0.9, weight_decay=0.0005)
+
+        self.optimizer = optim.Adam(chain(self.direct_feature.parameters(), self.meta_embedding.parameters()),
+                                   lr=0.01)
 
         self.scheduler = get_scheduler(opt, self.optimizer)
 
