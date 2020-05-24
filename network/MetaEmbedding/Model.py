@@ -76,9 +76,10 @@ class Model(BaseModel):
 
             for data in dataloader:
                 inputs, labels = data['input'], data['label']
+                direct_features = self.direct_feature(inputs)
                 for i in range(len(labels)):
                     label = labels[i]
-                    centroids[label] += self.direct_feature(inputs[i])
+                    centroids[label] += direct_features[i]
 
         # Average summed features with class count
         centroids /= torch.tensor(self.class_count(train_dataset)).float().unsqueeze(1).to(opt.device)  #class count为每一类的样本数，需要单独写。
