@@ -68,13 +68,14 @@ class Model(BaseModel):
         #在embedding模式下生成mem,建议在train里的if opt.load 和 model.train()之间添加model.centroids_cal(train_dataloader)
         centroids = torch.zeros(50030, self.feature_nums).to(opt.device)
 
-        print('Calculating centroids.')
+        # print('Calculating centroids.')
 
         self.eval()
 
         with torch.set_grad_enabled(False):
 
-            for data in dataloader:
+            for i, data in enumerate(dataloader):
+                utils.progress_bar(i, len(dataloader), 'Calculating centroids...')
                 inputs, labels = data['input'], data['label']
                 inputs = inputs.to(opt.device)
                 direct_features = self.direct_feature(inputs)
