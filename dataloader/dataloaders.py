@@ -18,6 +18,8 @@ max_size = 128 if opt.debug else None
 
 train_dataset = TrainValDataset(train_list, scale=opt.scale, aug=opt.aug, max_size=max_size, norm=opt.norm_input)
 
+train_dataloader_plain = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=4, drop_last=False)
+
 # stage2 training
 if opt.sampler:
     train_dataloader = DataLoader(dataset=train_dataset, batch_size=opt.batch_size, shuffle=False,
