@@ -35,6 +35,9 @@ class OHEM(object):
         # print(self.hard_sample_pool)
 
     def get_pool_size(self):
+        if not self.hard_sample_pool:
+            return 0
+
         return self.hard_sample_pool[0].size(0)
 
     def get_hard_batch(self):
@@ -55,8 +58,9 @@ if __name__ == '__main__':
         output = torch.rand([24, 10])
         label = torch.Tensor([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3]).long()
         ohem.collect_batch(output, input, label)
+        batch_size = 24
 
-        if ohem.get_pool_size() >= 24:
+        if ohem.get_pool_size() >= batch_size:
             input, label = ohem.get_hard_batch()
             print(input.shape)
             print(label.shape)

@@ -19,6 +19,7 @@ import misc_utils as utils
 
 from .res2net_wrapper import Classifier
 from loss import criterionRange
+from utils import OHEM
 
 #  criterionCE = nn.CrossEntropyLoss()
 
@@ -66,9 +67,15 @@ class Model(BaseModel):
             else:
                 self.criterionCE = nn.CrossEntropyLoss()
 
+        if opt.ohem:
+            self.ohem = OHEM(hard_sample_per_batch=opt.ohem)
+
     def update(self, input, label):
 
         predicted = self.classifier(input)
+        if opt.ohem:
+            self.ohem.collect_batch(predicted, input, label)
+
         loss_ce = self.criterionCE(predicted, label)
         loss = loss_ce
         self.avg_meters.update({'Cross Entropy': loss_ce.item()})
@@ -82,6 +89,10 @@ class Model(BaseModel):
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
+
+        if opt.ohem and self.ohem.get_pool_size() >= opt.batch_size:  # hard sample够了一个batch
+            input, label = self.ohem.get_hard_batch()
+            self.update(input, label)
 
         return {'predicted': predicted}
 

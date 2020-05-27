@@ -47,6 +47,9 @@ def parse_args():
     parser.add_argument('--norm-input', action='store_true')
     parser.add_argument('--random-erase', action='store_true', help='debug mode')
 
+    # Online Hard Example Mining
+    parser.add_argument('--ohem', type=int, default=None, help='OHEM size')
+
     # scale
     parser.add_argument('--scale', type=int, default=256, help='scale images to this size')
     parser.add_argument('--crop', type=int, default=None, help='then crop to this size')

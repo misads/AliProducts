@@ -145,7 +145,7 @@ class TrainValDataset(dataset.Dataset):
             # input = input.transpose(self.trans_dict[r])
         #
         if self.norm:
-            input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+            input = F.normalize(F.to_tensor(input), mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         else:
             input = F.to_tensor(input)
 
@@ -203,7 +203,7 @@ class TestDataset(dataset.Dataset):
             input = F.resize(input, (self.scale, self.scale))
         #
         if self.norm:
-            input = F.normalize(F.to_tensor(input), mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+            input = F.normalize(F.to_tensor(input), mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         else:
             input = F.to_tensor(input)
 
