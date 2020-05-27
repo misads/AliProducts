@@ -45,7 +45,6 @@ class OHEM(object):
             >>> if ohem.get_pool_size() >= opt.batch_size:
             >>>     ohem.get_hard_batch()
         """
-        print('get_hard_batch')
         hard_batch = self.hard_sample_pool
         self.hard_sample_pool = []
         return hard_batch

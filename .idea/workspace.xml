@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0b4d4d5-407d-4287-8c0c-4e11725d9453" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/dataloader/products.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataloader/products.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/Res2Net/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/Res2Net/Model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/Res2Net/res2net_v1b.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/Res2Net/res2net_v1b.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/options/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/options/options.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/ohem.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ohem.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/Res2Net/Model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="94" column="37" selection-start-line="94" selection-start-column="37" selection-end-line="94" selection-end-column="37" />
+            <state relative-caret-position="-95">
+              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -52,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/ohem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="506">
+              <caret line="46" column="11" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
               <folding>
                 <element signature="e#17#35#0" expanded="true" />
               </folding>
@@ -168,8 +164,8 @@
         <option value="$PROJECT_DIR$/network/Res2Net/res2net_v1b.py" />
         <option value="$PROJECT_DIR$/dataloader/products.py" />
         <option value="$PROJECT_DIR$/options/options.py" />
-        <option value="$PROJECT_DIR$/utils/ohem.py" />
         <option value="$PROJECT_DIR$/network/Res2Net/Model.py" />
+        <option value="$PROJECT_DIR$/utils/ohem.py" />
       </list>
     </option>
   </component>
@@ -435,7 +431,7 @@
       <workItem from="1590293084997" duration="7060000" />
       <workItem from="1590339315518" duration="1582000" />
       <workItem from="1590375456511" duration="976000" />
-      <workItem from="1590545047457" duration="5621000" />
+      <workItem from="1590545047457" duration="5822000" />
     </task>
     <servers />
   </component>
@@ -445,7 +441,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115428000" />
+    <option name="totallyTimeSpent" value="115629000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -461,12 +457,12 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.26434678" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.26434678" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32873562" />
-      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.2321839" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.2321839" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.32873562" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -925,22 +921,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/ohem.py">
+    <entry file="file://$PROJECT_DIR$/network/Res2Net/Model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="-95">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
           <folding>
-            <element signature="e#17#35#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/Res2Net/Model.py">
+    <entry file="file://$PROJECT_DIR$/utils/ohem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="94" column="37" selection-start-line="94" selection-start-column="37" selection-end-line="94" selection-end-column="37" />
+        <state relative-caret-position="506">
+          <caret line="46" column="11" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#17#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
