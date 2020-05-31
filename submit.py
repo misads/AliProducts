@@ -3,6 +3,7 @@ import misc_utils as utils
 import argparse
 from torch_template.utils.torch_utils import create_summary_writer
 import torch
+import os
 from dataloader import val_dataloader as dataloader
 from torch.autograd import Variable
 import csv
@@ -59,10 +60,11 @@ model.eval()
 
 with open('submission.csv', 'w') as f:  # 如果在windows下打开csv出现空行的情况,加一个newline=''参数
     csv_writer = csv.writer(f)
-
+    csv_writer.writerow(['id', 'predicted'])  # 写一行
     for i, data in enumerate(dataloader):
 
         input, path = data['input'], data['path']
+
         if 'label' in data:
             label = data['label']
 
@@ -75,8 +77,10 @@ with open('submission.csv', 'w') as f:  # 如果在windows下打开csv出现空�
             # ct_num += label.size(0)
             # correct += (predicted == label_var).sum().item()
         ipdb.set_trace()
-        # line = []
-        # csv_writer.writerow(line)  # 写一行
+        for idx in range(len(path)):  # batch
+            filename = os.path.basename(path)
+            line = [filename, predicted[idx]]
+            csv_writer.writerow(line)  # 写一行
 
 
 
