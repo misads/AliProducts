@@ -110,7 +110,7 @@ from eval import evaluate
 from utils import *
 # from torch_template.utils.torch_utils import create_summary_writer, write_meters_loss, LR_Scheduler
 from utils.torch_utils import create_summary_writer, write_meters_loss
-from utils.send_sms import send_notification
+# from utils.send_sms import send_notification
 
 import misc_utils as utils
 
