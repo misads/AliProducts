@@ -28,7 +28,7 @@ Debug:
     python train.py --model {%s} --debug""" % model_choices + """
     
 Resume Training:
-    python train.py --tag your_tag --model ResNeSt101 -b 24 --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """--resume
+    python train.py --tag your_tag --model ResNeSt101 --epochs 20 -b 24 --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """--resume
 
 Eval:
     python eval.py --tag your_tag2 --model ResNeSt101 -b 48 --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """
