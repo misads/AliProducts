@@ -4,7 +4,7 @@ import argparse
 from torch_template.utils.torch_utils import create_summary_writer
 import torch
 import os
-from dataloader import val_dataloader as dataloader
+from dataloader import test_dataloader as dataloader
 from torch.autograd import Variable
 import csv
 import ipdb
@@ -37,6 +37,7 @@ def parse_args():
     parser.add_argument('--crop', type=int, default=None, help='then crop to this size')
 
     parser.add_argument('--load', type=str, default=None, help='load checkpoint')
+    parser.add_argument('--which-epoch', type=int, default=None, help='which epoch to resume')
 
     return parser.parse_args()
 
@@ -76,7 +77,7 @@ with open('submission.csv', 'w') as f:  # 如果在windows下打开csv出现空�
             _, predicted = torch.max(predicted, 1)
             # ct_num += label.size(0)
             # correct += (predicted == label_var).sum().item()
-        ipdb.set_trace()
+        # ipdb.set_trace()
         for idx in range(len(path)):  # batch
             filename = os.path.basename(path[idx])
             line = [filename, predicted[idx].item()]
