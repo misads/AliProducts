@@ -24,6 +24,7 @@ def parse_args():
     parser.add_argument('--scheduler', choices=['cos', 'step', 'exp', 'cyclic', 'lambda', 'None'], default='cos')
     parser.add_argument('--epochs', '--max_epoch', type=int, default=10, help='epochs to train')
     parser.add_argument('--lr', type=float, default=0.0001, help='initial learning rate for adam')
+    parser.add_argument('--checkpoint_dir', type=str, default='./checkpoints', help='models are saved here')
 
     # batch size
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
