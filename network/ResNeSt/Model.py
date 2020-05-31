@@ -57,14 +57,14 @@ class Model(BaseModel):
         self.avg_meters = ExponentialMovingAverage(0.95)
         self.save_dir = os.path.join(opt.checkpoint_dir, opt.tag)
 
-        with open('datasets/class_weight.pkl', 'rb') as f:
-            class_weight = pickle.load(f, encoding='bytes')
-            class_weight = np.array(class_weight, dtype=np.float32)
-            class_weight = torch.from_numpy(class_weight).to(opt.device)
-            if opt.class_weight:
-                self.criterionCE = nn.CrossEntropyLoss(weight=class_weight)
-            else:
-                self.criterionCE = nn.CrossEntropyLoss()
+        # with open('datasets/class_weight.pkl', 'rb') as f:
+        #     class_weight = pickle.load(f, encoding='bytes')
+        #     class_weight = np.array(class_weight, dtype=np.float32)
+        #     class_weight = torch.from_numpy(class_weight).to(opt.device)
+        #     if opt.class_weight:
+        #         self.criterionCE = nn.CrossEntropyLoss(weight=class_weight)
+        #     else:
+        self.criterionCE = nn.CrossEntropyLoss()
 
     def update(self, input, label):
 
