@@ -7,7 +7,7 @@ import pdb
 
 ###################
 
-TEST_DATASET_HAS_OPEN = False  # 有没有开放测试集
+TEST_DATASET_HAS_OPEN = True  # 有没有开放测试集
 
 ###################
 
