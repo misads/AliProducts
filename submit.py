@@ -19,6 +19,10 @@ def parse_args():
 
     parser.add_argument('--model', type=str, default='default', help='which model to use')
 
+    # to load correctly
+    parser.add_argument('--optimizer', choices=['adam', 'sgd', 'radam', 'lookahead', 'ranger'], default='ranger')
+    parser.add_argument('--scheduler', choices=['cos', 'step', 'exp', 'cyclic', 'lambda', 'None'], default='cos')
+
     # batch size
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
     # data argumentation
