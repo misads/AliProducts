@@ -33,7 +33,7 @@ else:
     train_dataloader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=4, drop_last=True)
 
 val_dataset = TrainValDataset(val_list, scale=opt.scale, aug=False, max_size=max_size, norm=opt.norm_input)
-val_dataloader = DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=1)
+val_dataloader = DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=0)
 
 if TEST_DATASET_HAS_OPEN:
     test_list = "./datasets/test.txt"  # 还没有

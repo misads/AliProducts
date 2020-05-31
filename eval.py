@@ -64,8 +64,14 @@ def evaluate(model, dataloader, epochs, writer, logger, data_name='val'):
 
     if data_name == 'val':
         # write_loss(writer, 'val/%s' % data_name, 'psnr', ave_psnr / float(ct_num), epochs)
-        ipdb.set_trace()
-        logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Accuracy: ' + str(correct / float(ct_num)) + '.')
+        acc = 0.
+        for k in counts:
+            acc += corrects[k] / counts[k]
+
+        err = 1 - acc / 50030
+        err = err + 0.03  # 线上错误率比线下高0.03
+        # logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Accuracy: ' + str(correct / float(ct_num)) + '.')
+        logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Err: ' + str(err) + '.')
         return str(round(correct / float(ct_num), 3))
     else:
         return ''
