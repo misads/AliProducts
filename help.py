@@ -31,10 +31,10 @@ Resume Training:
     python train.py --tag your_tag --model ResNeSt101 -b 24 --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """--resume
 
 Eval:
-    python eval.py --tag your_tag2 --model ResNeSt101 -b 24 --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """
+    python eval.py --tag your_tag2 --model ResNeSt101 -b 48 --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """
 
 Generate Submission:
-    python submit.py --model ResNeSt101 --load checkpoints/my_ckpt.pt --gpu 0'
+    python submit.py --model ResNeSt101 --load checkpoints/my_ckpt.pt -b 48 --gpu 0'
 
 See Running Log:
     cat logs/{%s}/log.txt""" % log_choices + """
