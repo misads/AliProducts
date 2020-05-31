@@ -73,7 +73,7 @@ def evaluate(model, dataloader, epochs, writer, logger, data_name='val'):
         err = err + 0.03  # 线上错误率比线下高0.03
         # logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Accuracy: ' + str(correct / float(ct_num)) + '.')
         logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Err: ' + str(err) + '.')
-        ipdb.set_trace()
+        # ipdb.set_trace()
         return str(round(correct / float(ct_num), 3))
     else:
         return ''
