@@ -19,7 +19,7 @@ checkpoints_choices = get_dirs('checkpoints')
 
 help = """Usage:
 Training:
-    python train.py --tag your_tag --model {%s} -b 8 --gpu 0""" % model_choices + """
+    python train.py --tag your_tag --model {%s} -b 24 --gpu 0""" % model_choices + """
 
 Finding Best Hyper Params:
     python runx.py --run
@@ -28,10 +28,10 @@ Debug:
     python train.py --model {%s} --debug""" % model_choices + """
     
 Resume Training:
-    python train.py --tag your_tag --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """--resume
+    python train.py --tag your_tag --model ResNeSt101 -b 24 --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """--resume
 
 Eval:
-    python eval.py --tag your_tag2 --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """
+    python eval.py --tag your_tag2 --model ResNeSt101 -b 24 --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """
 
 See Running Log:
     cat logs/{%s}/log.txt""" % log_choices + """
