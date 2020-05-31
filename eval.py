@@ -1,7 +1,8 @@
 # python 3.5, pytorch 1.14
 
 import os, sys
-import pdb
+import ipdb
+from collections import defaultdict
 
 import dataloader as dl
 from options import opt
@@ -32,6 +33,9 @@ def evaluate(model, dataloader, epochs, writer, logger, data_name='val'):
 
     correct = 0
     ct_num = 0
+    counts = defaultdict(int)
+    corrects = defaultdict(int)
+
     # print('Start testing ' + tag + '...')
     for i, data in enumerate(dataloader):
         if data_name == 'val':
@@ -46,6 +50,12 @@ def evaluate(model, dataloader, epochs, writer, logger, data_name='val'):
                 ct_num += label.size(0)
                 correct += (predicted == label_var).sum().item()
 
+            for idx, l in enumerate(label):
+                counts[l] += 1
+                p = predicted[idx].item()
+                if p == l:
+                    corrects[l] += 1
+
         elif data_name == 'test':
             pass
 
@@ -54,7 +64,7 @@ def evaluate(model, dataloader, epochs, writer, logger, data_name='val'):
 
     if data_name == 'val':
         # write_loss(writer, 'val/%s' % data_name, 'psnr', ave_psnr / float(ct_num), epochs)
-
+        ipdb.set_trace()
         logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Accuracy: ' + str(correct / float(ct_num)) + '.')
         return str(round(correct / float(ct_num), 3))
     else:
