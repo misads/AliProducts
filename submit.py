@@ -22,6 +22,7 @@ def parse_args():
     # to load correctly
     parser.add_argument('--optimizer', choices=['adam', 'sgd', 'radam', 'lookahead', 'ranger'], default='ranger')
     parser.add_argument('--scheduler', choices=['cos', 'step', 'exp', 'cyclic', 'lambda', 'None'], default='cos')
+    parser.add_argument('--lr', type=float, default=0.0001, help='initial learning rate for adam')
 
     # batch size
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
