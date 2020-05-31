@@ -78,7 +78,7 @@ with open('submission.csv', 'w') as f:  # 如果在windows下打开csv出现空�
             # correct += (predicted == label_var).sum().item()
         ipdb.set_trace()
         for idx in range(len(path)):  # batch
-            filename = os.path.basename(path)
+            filename = os.path.basename(path[idx])
             line = [filename, predicted[idx]]
             csv_writer.writerow(line)  # 写一行
 
