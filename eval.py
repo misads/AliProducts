@@ -51,6 +51,7 @@ def evaluate(model, dataloader, epochs, writer, logger, data_name='val'):
                 correct += (predicted == label_var).sum().item()
 
             for idx, l in enumerate(label):
+                l = l.item()
                 counts[l] += 1
                 p = predicted[idx].item()
                 if p == l:
@@ -68,10 +69,11 @@ def evaluate(model, dataloader, epochs, writer, logger, data_name='val'):
         for k in counts:
             acc += corrects[k] / counts[k]
 
-        err = 1 - acc / 50030
+        err = 1 - acc / len(counts)
         err = err + 0.03  # 线上错误率比线下高0.03
         # logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Accuracy: ' + str(correct / float(ct_num)) + '.')
         logger.info('Eva(%s) epoch %d ,' % (data_name, epochs) + 'Err: ' + str(err) + '.')
+        ipdb.set_trace()
         return str(round(correct / float(ct_num), 3))
     else:
         return ''
@@ -91,7 +93,9 @@ if __name__ == '__main__':
     model = Model(opt)
     model = model.to(device=opt.device)
 
-    opt.which_epoch = model.load(opt.load)
+    load_epoch = model.load(opt.load)
+    if load_epoch is not None:
+        opt.which_epoch = load_epoch
 
     model.eval()
 
