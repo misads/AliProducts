@@ -72,7 +72,7 @@ def parse_args():
     parser.add_argument('--resume', action='store_true', help='resume training, only used when --load')
     parser.add_argument('--reset', action='store_true', help='reset training, only used when --load')
 
-    # parser.add_argument('--which-epoch', type=int, default=None, help='which epoch to resume')
+    parser.add_argument('--which-epoch', type=int, default=None, help='which epoch to resume')
     parser.add_argument('--epochs', '--max_epoch', type=int, default=10, help='epochs to train')
     parser.add_argument('--lr', type=float, default=0.0001, help='initial learning rate for adam')
 
