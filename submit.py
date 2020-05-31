@@ -74,9 +74,9 @@ with open('submission.csv', 'w') as f:  # 如果在windows下打开csv出现空�
             _, predicted = torch.max(predicted, 1)
             # ct_num += label.size(0)
             # correct += (predicted == label_var).sum().item()
-            ipdb.set_trace()
-            # line = []
-            # csv_writer.writerow(line)  # 写一行
+        ipdb.set_trace()
+        # line = []
+        # csv_writer.writerow(line)  # 写一行
 
 
 
