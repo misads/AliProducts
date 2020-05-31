@@ -1,7 +1,6 @@
 from network import get_model
 import misc_utils as utils
 import argparse
-from torch_template.utils.torch_utils import create_summary_writer
 import torch
 import os
 from dataloader import test_dataloader as dataloader

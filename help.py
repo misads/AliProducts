@@ -27,11 +27,11 @@ Finding Best Hyper Params:
 Debug:
     python train.py --model {%s} --debug""" % model_choices + """
     
-Load Pre-Trained:
-    python train.py --tag your_tag --load checkpoints/{%s} """ % checkpoints_choices + """--which-epoch 9
+Resume Training:
+    python train.py --tag your_tag --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """--resume
 
 Eval:
-    python eval.py --tag your_tag2 --load checkpoints/{%s} """ % checkpoints_choices + """--which-epoch 9
+    python eval.py --tag your_tag2 --load checkpoints/{%s}/9_Model.pt """ % checkpoints_choices + """
 
 See Running Log:
     cat logs/{%s}/log.txt""" % log_choices + """
