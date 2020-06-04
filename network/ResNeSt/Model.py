@@ -82,7 +82,7 @@ class Model(BaseModel):
 
             label_a, label_b = label, label[index]
 
-            loss_ce = self.criterionCE(predicted, label_a) + (1-lam) * self.criterionCE(predicted, label_b)
+            loss_ce = label_smooth_loss(predicted, label_a) + (1-lam) * label_smooth_loss(predicted, label_b)
             self.avg_meters.update({'CE loss(mixup)': loss_ce.item()})
 
         else:

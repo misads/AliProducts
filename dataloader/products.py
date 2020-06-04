@@ -140,10 +140,14 @@ class TrainValDataset(dataset.Dataset):
         if self.scale:
             input = F.resize(input, (self.scale, self.scale))
         #
-        if self.aug:
-            input = data_augmentation(input, scale=self.scale, degree=0, jitter=0.3, hue=0.1, saturation=1.5, val=1.5)
-            # input = input.transpose(self.trans_dict[r])
-        #
+        r = random.randint(0, 2)
+        if self.aug and r != 2:
+            input = input.transpose(self.trans_dict[r])
+
+        # if self.aug:
+        #     input = data_augmentation(input, scale=self.scale, degree=0, jitter=0.3, hue=0.1, saturation=1.5, val=1.5)
+        #     # input = input.transpose(self.trans_dict[r])
+        # #
         if self.norm:
             input = F.normalize(F.to_tensor(input), mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         else:
