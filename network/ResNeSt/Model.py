@@ -20,6 +20,7 @@ import misc_utils as utils
 from .resnest_wrapper import Classifier
 from loss import criterionRange
 from loss import label_smooth_loss
+from mscv.image import tensor2im
 
 #  criterionCE = nn.CrossEntropyLoss()
 
@@ -72,11 +73,13 @@ class Model(BaseModel):
         # loss_ce = self.criterionCE(predicted, label)
         # loss_ce = label_smooth_loss(predicted, label)
         # loss = loss_ce
+        input_image = None
         if opt.mixup:
             alpha = 1.  # 超参数
             lam = np.random.beta(alpha, alpha)
             index = torch.randperm(input.size(0)).to(opt.device)
             input = lam * input + (1-lam) * input[index, :]
+            input_image = tensor2im(input)
 
             predicted = self.classifier(input)
 
@@ -102,7 +105,7 @@ class Model(BaseModel):
         loss.backward()
         self.optimizer.step()
 
-        return {'predicted': predicted}
+        return {'predicted': predicted, 'input': input_image}
 
     def forward(self, x):
         return self.classifier(x)

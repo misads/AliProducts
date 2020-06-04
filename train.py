@@ -109,7 +109,7 @@ from eval import evaluate
 
 from utils import *
 # from torch_template.utils.torch_utils import create_summary_writer, write_meters_loss, LR_Scheduler
-from utils.torch_utils import create_summary_writer, write_meters_loss
+from utils.torch_utils import create_summary_writer, write_meters_loss, write_image
 # from utils.send_sms import send_notification
 
 import misc_utils as utils
@@ -188,12 +188,14 @@ try:
             ##############################
             update = model.update(img_var, label_var)
             predicted = update.get('predicted')
+            input_image = update.get('input_image')
 
             pre_msg = 'Epoch:%d' % epoch
 
             msg = f'lr:{round(scheduler.get_lr()[0], 6) : .6f} (loss) {str(model.avg_meters)} ETA: {utils.format_time(remaining)}'
             utils.progress_bar(iteration, len(train_dataloader), pre_msg, msg)
             # print(pre_msg, msg)
+            write_image(writer, 'train', 'mix_up', input_image, iteration, dataformats='HWC')
 
             if global_step % 1000 == 999:
                 write_meters_loss(writer, 'train', model.avg_meters, global_step)
