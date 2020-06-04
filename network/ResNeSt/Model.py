@@ -19,6 +19,7 @@ import misc_utils as utils
 
 from .resnest_wrapper import Classifier
 from loss import criterionRange
+from loss import label_smooth_loss
 
 #  criterionCE = nn.CrossEntropyLoss()
 
@@ -69,15 +70,16 @@ class Model(BaseModel):
     def update(self, input, label):
 
         predicted = self.classifier(input)
-        loss_ce = self.criterionCE(predicted, label)
+        # loss_ce = self.criterionCE(predicted, label)
+        loss_ce = label_smooth_loss(predicted, label)
         loss = loss_ce
-        self.avg_meters.update({'Cross Entropy': loss_ce.item()})
+        self.avg_meters.update({'CE loss(label smooth)': loss_ce.item()})
 
-        if opt.weight_range:
-            _, _, range_loss = criterionRange(predicted, label)
-            range_loss = range_loss * opt.weight_range
-            loss += range_loss
-            self.avg_meters.update({'Range': range_loss.item()})
+        # if opt.weight_range:
+        #     _, _, range_loss = criterionRange(predicted, label)
+        #     range_loss = range_loss * opt.weight_range
+        #     loss += range_loss
+        #     self.avg_meters.update({'Range': range_loss.item()})
 
         self.optimizer.zero_grad()
         loss.backward()

@@ -22,15 +22,14 @@ Potato Chips Classification.
   - [x] 交叉熵
   - [ ] Lifted Loss
   - [ ] Focal Loss
-  - [ ] Range Loss
+  - [x] Range Loss
   
 - 优化器
   - [x] Adam
   - [x] SGD
   - [x] RAdam
   - [x] NAdam
-  
-- [x] Look Ahead
+  - [x] Look Ahead
   
 - Data Argumentation
   
@@ -48,7 +47,7 @@ Potato Chips Classification.
   
   - [ ] Random Erase
   
-  - [ ] Norm_input
+  - [x] Norm_input
   
 ```python
 data_transforms = {
@@ -76,9 +75,9 @@ data_transforms = {
 
 - TTA
   - [ ] 放大、色相、饱和度、亮度
-  - [ ] `flip`
+  - [x] `flip`
   - [ ] 多尺度测试
-  - [ ] ttach库
+  - [x] ttach库
   
 - 其他Tricks
   - [ ] mix up
