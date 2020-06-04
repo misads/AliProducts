@@ -49,6 +49,7 @@ def parse_args():
 
     # Online Hard Example Mining
     parser.add_argument('--ohem', type=int, default=None, help='OHEM size')
+    parser.add_argument('--mixup', action='store_true', help='mixup')
 
     # scale
     parser.add_argument('--scale', type=int, default=256, help='scale images to this size')

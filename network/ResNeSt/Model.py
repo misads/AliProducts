@@ -69,11 +69,28 @@ class Model(BaseModel):
 
     def update(self, input, label):
 
-        predicted = self.classifier(input)
         # loss_ce = self.criterionCE(predicted, label)
-        loss_ce = label_smooth_loss(predicted, label)
+        # loss_ce = label_smooth_loss(predicted, label)
+        # loss = loss_ce
+        if opt.mixup:
+            alpha = 1.  # 超参数
+            lam = np.random.beta(alpha, alpha)
+            index = torch.randperm(input.size(0)).to(opt.device)
+            input = lam * input + (1-lam) * input[index, :]
+
+            predicted = self.classifier(input)
+
+            label_a, label_b = label, label[index]
+
+            loss_ce = self.criterionCE(predicted, label_a) + (1-lam) * self.criterionCE(predicted, label_b)
+            self.avg_meters.update({'CE loss(mixup)': loss_ce.item()})
+
+        else:
+            predicted = self.classifier(input)
+            loss_ce = self.criterionCE(predicted, label)
+            self.avg_meters.update({'CE loss': loss_ce.item()})
+
         loss = loss_ce
-        self.avg_meters.update({'CE loss(label smooth)': loss_ce.item()})
 
         # if opt.weight_range:
         #     _, _, range_loss = criterionRange(predicted, label)
