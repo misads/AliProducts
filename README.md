@@ -1,106 +1,86 @@
-# AliProducts 薯片🍟分类
+# CVPR 2020 AliProducts Challenge
 
-Potato Chips Classification.
+一个通用的图像分类模板，天池/CVPR AliProducts挑战赛 8/688
 
-## To do List
+队伍：薯片分类器！
 
-- 网络结构
+解决方案链接 <这是解决方案链接>
+
+## Features
+
+- Backbone
   - [x] ResNet(101)
-  - [x] ResNe**X**t(101) `224`输入
+  - [x] ResNe**X**t(101) 
   - [x] ResNe**S**t(101, 200)
+  - [x] Res2Net(101)
   - [x] **i**ResNet(101, 152, 200)
   - [x] EffiCientNet(B-5, B-7)
-  - [ ] DenseNet(201)
-  
-- 改结构
-  - [ ] 自注意力机制
-  - [ ] Few-Shot Learning
-  - [ ] Deep Metric Learning
-  - [ ] 解决Long-Tailed Problem
-
-- 损失函数
-  - [x] 交叉熵
-  - [ ] Lifted Loss
-  - [ ] Focal Loss
-  - [x] Range Loss
   
 - 优化器
   - [x] Adam
   - [x] SGD
-  - [x] RAdam
-  - [x] NAdam
-  - [x] Look Ahead
+  - [x] Ranger(RAdam+Look Ahead)
+- Scheduler
+  - [x] Cos
+  - [x] 自定义scheduler
   
-- Data Argumentation
+- Input Pipeline
   
-  - [ ] 随机旋转(-10, 10)度 (有黑边)
-  
-  - [ ] 随机左右翻转(字会变反)
-  
-  - [x] 随机放大(1, 1.3)倍
-  
-  - [x] 随机色相(-0.1, 0.1)
-  
-  - [x] 随机饱和度(-1/1.5, 1/1.5)
-  
-  - [x] 随机亮度(-1/1.5, 1/1.5)
-  
-  - [ ] Random Erase
-  
+  - [x] 裁剪和切割
+  - [x] 随机翻折和旋转
+  - [x] 随机放大
+  - [x] 随机色相
+  - [x] 随机饱和度
+  - [x] 随机亮度
   - [x] Norm_input
-  
-```python
-data_transforms = {
-    'train': transforms.Compose([
-        transforms.RandomResizedCrop(224),
-        transforms.RandomHorizontalFlip(),
-        transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    ]),
-    'val': transforms.Compose([
-        transforms.Resize(256),
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    ]),
-    'test': transforms.Compose([
-        transforms.Resize(256),
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    ])
-}
-```
 
-- TTA
-  - [ ] 放大、色相、饱和度、亮度
-  - [x] `flip`
-  - [ ] 多尺度测试
-  - [x] ttach库
-  
-- 其他Tricks
-  - [ ] mix up
-  - [ ] 使用fp_16训练，提高训练速度
-  - [ ] One_Cycle 学习率
-
+- 其他tricks
+  - [x] label smooth
+  - [x] model ensemble
+  - [x] TTA
 ## Prerequisites
 
 ```yaml
 python >= 3.6
-torch >= 0.4
+torch >= 1.0
 tensorboardX >= 1.6
 utils-misc >= 0.0.5
 torch-template >= 0.0.4
+mscv >= 0.0.3
 ```
+
+都是很好装的库，不需要编译。
 
 ## Code Usage
 
-```python
-python help.py
+```bash
+Code Usage:
+Training:
+    python train.py --tag your_tag --model ResNeSt101  --epochs 20 -b 24 --gpu 0
+
+Finding Best Hyper Params:  # 需先设置好sweep.yml
+    python runx.py --run
+
+Resume Training (or fine-tune):
+    python train.py --tag your_tag --model ResNeSt101 --epochs 20 -b 24 --load checkpoints/your_tag/9_ResNeSt101.pt --resume --gpu 0
+
+Eval:
+    python eval.py --model ResNeSt101 -b 96 --load checkpoints/your_tag/9_ResNeSt101.pt --gpu 1
+
+Generate Submission:
+    python submit.py --model ResNeSt101 --load checkpoints/your_tag/9_ResNeSt101.pt -b 96 --gpu 0
+
+See Running Log:
+    cat logs/your_tag/log.txt
+
+Clear(delete all files with the tag, BE CAREFUL to use):
+    python clear.py --tag your_tag
+
+See ALL Running Commands:
+    cat run_log.txt
 ```
 
-## 如何添加新的模型：
+## 如何添加自定义的模型：
 
 ```
 如何添加新的模型：
@@ -114,5 +94,5 @@ python help.py
         'MyNet': MyNet,
     }
 
-③ 尝试 python train.py --model MyNet 看能否成功运行
+③ 尝试 python train.py --model MyNet --debug 看能否成功运行
 ```
