@@ -1,6 +1,6 @@
 # CVPR 2020 AliProducts Challenge
 
-一个通用的图像分类模板，天池/CVPR AliProducts挑战赛 8/688
+一个通用的图像分类模板，天池/CVPR AliProducts挑战赛 8/688🍟
 
 队伍：薯片分类器！
 
@@ -56,7 +56,7 @@ mscv >= 0.0.3
 ```bash
 Code Usage:
 Training:
-    python train.py --tag your_tag --model ResNeSt101  --epochs 20 -b 24 --gpu 0
+    python train.py --tag your_tag --model ResNeSt101 --epochs 20 -b 24 --lr 0.0001 --gpu 0
 
 Finding Best Hyper Params:  # 需先设置好sweep.yml
     python runx.py --run
@@ -79,6 +79,8 @@ Clear(delete all files with the tag, BE CAREFUL to use):
 See ALL Running Commands:
     cat run_log.txt
 ```
+
+`-b`参数是`batch_size`，可以根据显存的大小调整。
 
 ## 如何添加自定义的模型：
 
