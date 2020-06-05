@@ -96,7 +96,7 @@ See ALL Running Commands:
 
 `--resume`配合`--load`使用，会恢复上次训练的`epoch`和优化器。  
 
-`—gpu`指定`gpu id`，目前只支持单卡训练。  
+`--gpu`指定`gpu id`，目前只支持单卡训练。  
 
 另外还可以通过参数调整优化器、学习率衰减、验证和保存模型的频率等，详细请查看`python train.py —help`。  
 
