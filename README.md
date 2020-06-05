@@ -80,7 +80,25 @@ See ALL Running Commands:
     cat run_log.txt
 ```
 
-`-b`参数是`batch_size`，可以根据显存的大小调整。
+参数用法：
+
+`--tag`参数是一次操作(`train`或`eval`)的标签，日志会保存在`logs/标签`目录下，保存的模型会保存在`checkpoints/标签`目录下。  
+
+`--model`是使用的模型，所有可用的模型定义在`network/__init__.py`中。  
+
+`--epochs`是训练的代数。  
+
+`-b`参数是`batch_size`，可以根据显存的大小调整。  
+
+`--lr`是初始学习率。
+
+`--load`是加载预训练模型。  
+
+`--resume`配合`--load`使用，会恢复上次训练的`epoch`和优化器。  
+
+`—gpu`指定`gpu id`，目前只支持单卡训练。  
+
+另外还可以通过参数调整优化器、学习率衰减、验证和保存模型的频率等，详细请查看`python train.py —help`。  
 
 ## 如何添加自定义的模型：
 
