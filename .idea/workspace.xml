@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0b4d4d5-407d-4287-8c0c-4e11725d9453" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eda.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,31 +15,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/options/options.py">
+        <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest_wrapper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataloader/dataloaders.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/ResNeSt/Model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-72">
-              <caret line="56" column="90" selection-start-line="56" selection-start-column="90" selection-end-line="56" selection-end-column="90" />
+            <state relative-caret-position="149">
+              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -46,13 +27,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loss/label_smooth.py">
+        <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest/resnest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="e#318#330#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/ResNeSt/Model.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
+              <caret line="21" column="34" lean-forward="true" selection-end-line="125" />
             </state>
           </provider>
         </entry>
@@ -69,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loss/rangeloss.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
+            <state relative-caret-position="3435">
               <caret line="233" selection-start-line="233" selection-end-line="233" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
@@ -90,13 +80,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="187" column="42" lean-forward="true" selection-start-line="187" selection-start-column="42" selection-end-line="187" selection-end-column="42" />
+            <state relative-caret-position="472">
+              <caret line="241" lean-forward="true" selection-start-line="93" selection-end-line="241" />
               <folding>
                 <element signature="e#2627#2636#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/eval.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="18" lean-forward="true" selection-end-line="109" />
+              <folding>
+                <element signature="e#28#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -235,7 +237,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="962" />
+    <option name="height" value="959" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -269,6 +271,13 @@
               <item name="AliProducts" type="462c0819:PsiDirectoryNode" />
               <item name="network" type="462c0819:PsiDirectoryNode" />
               <item name="ResNeSt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AliProducts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AliProducts" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+              <item name="ResNeSt" type="462c0819:PsiDirectoryNode" />
+              <item name="resnest" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AliProducts" type="b2602c69:ProjectViewProjectNode" />
@@ -495,7 +504,10 @@
       <workItem from="1591097796477" duration="2385000" />
       <workItem from="1591251464667" duration="2724000" />
       <workItem from="1591265775130" duration="5210000" />
-      <workItem from="1591371214624" duration="634000" />
+      <workItem from="1591371214624" duration="983000" />
+      <workItem from="1591671421654" duration="2000" />
+      <workItem from="1591673730855" duration="841000" />
+      <workItem from="1593182576074" duration="544000" />
     </task>
     <servers />
   </component>
@@ -505,7 +517,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143304000" />
+    <option name="totallyTimeSpent" value="145040000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -517,15 +529,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="962" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="959" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2857143" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2967033" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32873562" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.29655173" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.29757786" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.32873562" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -699,16 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest/resnest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="e#318#330#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.7/site-packages/misc_utils/misc_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -738,16 +740,6 @@
           <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="67" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="e#28#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -846,16 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest_wrapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.7/site-packages/mscv/image/image_io.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -914,6 +896,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/options/options.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="36" selection-start-line="36" selection-end-line="36" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataloader/dataloaders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="24" selection-start-line="24" selection-end-line="26" selection-end-column="64" />
+          <folding>
+            <element signature="e#17#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loss/label_smooth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scheduler/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loss/rangeloss.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3435">
+          <caret line="233" selection-start-line="233" selection-end-line="233" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dataloader/products.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
@@ -941,66 +970,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataloader/dataloaders.py">
+    <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest_wrapper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loss/rangeloss.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="233" selection-start-line="233" selection-end-line="233" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loss/label_smooth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scheduler/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/ResNeSt/Model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="56" column="90" selection-start-line="56" selection-start-column="90" selection-end-line="56" selection-end-column="90" />
+        <state relative-caret-position="149">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/options/options.py">
+    <entry file="file://$PROJECT_DIR$/network/ResNeSt/resnest/resnest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="329">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#318#330#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/ResNeSt/Model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="34" lean-forward="true" selection-end-line="125" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="187" column="42" lean-forward="true" selection-start-line="187" selection-start-column="42" selection-end-line="187" selection-end-column="42" />
+        <state relative-caret-position="472">
+          <caret line="241" lean-forward="true" selection-start-line="93" selection-end-line="241" />
           <folding>
             <element signature="e#2627#2636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="18" lean-forward="true" selection-end-line="109" />
+          <folding>
+            <element signature="e#28#42#0" expanded="true" />
           </folding>
         </state>
       </provider>

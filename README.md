@@ -1,6 +1,6 @@
 # CVPR 2020 AliProducts Challenge
 
-一个通用的图像分类模板，天池/CVPR AliProducts挑战赛 8/688🍟
+一个通用的图像分类模板，天池/CVPR AliProducts挑战赛 3/688🍟
 
 队伍：薯片分类器！
 
