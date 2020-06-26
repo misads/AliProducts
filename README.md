@@ -4,8 +4,6 @@
 
 队伍：薯片分类器！
 
-组织：天津大学
-
 ## Features
 
 - Backbone
