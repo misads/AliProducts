@@ -68,7 +68,7 @@ Eval:
 Generate Submission:
     python submit.py --model ResNeSt101 --load checkpoints/your_tag/9_ResNeSt101.pt -b 96 --gpu 0
 
-See Running Log:
+Check Running Log:
     cat logs/your_tag/log.txt
 
 Clear(delete all files with the tag, BE CAREFUL to use):
@@ -95,6 +95,8 @@ See ALL Running Commands:
 `--resume`配合`--load`使用，会恢复上次训练的`epoch`和优化器。  
 
 `--gpu`指定`gpu id`，目前只支持单卡训练。  
+
+`--debug`以debug模式运行，debug模式下每个`epoch`只会训练前几个batch。
 
 另外还可以通过参数调整优化器、学习率衰减、验证和保存模型的频率等，详细请查看`python train.py --help`。  
 
