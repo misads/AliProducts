@@ -33,11 +33,6 @@ def parse_args():
     # batch size
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
 
-    # training options
-    parser.add_argument('--sampler', action='store_true', help='Class Aware Sampler.')
-    parser.add_argument('--class_weight', action='store_true', help='Different class weight.')
-    parser.add_argument('--num_samples_cls', type=int, default=4, help='how many samples from a class')
-
     # optimizer and scheduler
     parser.add_argument('--optimizer', choices=['adam', 'sgd', 'radam', 'lookahead', 'ranger'], default='ranger')
     parser.add_argument('--scheduler', choices=['cos', 'step', 'exp', 'cyclic', 'lambda', 'None'], default='cos')
@@ -47,15 +42,12 @@ def parse_args():
     parser.add_argument('--norm-input', action='store_true')
     parser.add_argument('--random-erase', action='store_true', help='debug mode')
 
-    # Online Hard Example Mining
-    parser.add_argument('--ohem', type=int, default=None, help='OHEM size')
-
     # scale
     parser.add_argument('--scale', type=int, default=256, help='scale images to this size')
     parser.add_argument('--crop', type=int, default=None, help='then crop to this size')
 
     # for datasets
-    parser.add_argument('--dataset', choices=['ITS', 'OTS'], default='ITS', help='training dataset')
+    parser.add_argument('--dataset', choices=['default'], default='default', help='training dataset')
     parser.add_argument('--val_set', type=str, default=None)
     parser.add_argument('--test_set', type=str, default=None)
 
@@ -72,7 +64,7 @@ def parse_args():
     parser.add_argument('--resume', action='store_true', help='resume training, only used when --load')
     parser.add_argument('--reset', action='store_true', help='reset training, only used when --load')
 
-    parser.add_argument('--which-epoch', type=int, default=None, help='which epoch to resume')
+    # parser.add_argument('--which-epoch', type=int, default=None, help='which epoch to resume')
     parser.add_argument('--epochs', '--max_epoch', type=int, default=10, help='epochs to train')
     parser.add_argument('--lr', type=float, default=0.0001, help='initial learning rate for adam')
 

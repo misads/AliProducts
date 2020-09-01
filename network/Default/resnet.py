@@ -9,6 +9,10 @@ from torchvision.models import resnet101
 
 classes = 50030
 
+"""
+这个文件定义分类器的具体结构
+"""
+
 
 class Classifier(nn.Module):
     def __init__(self):

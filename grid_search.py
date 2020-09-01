@@ -1,12 +1,13 @@
 # encoding = utf-8
 """
     借鉴自NVIDIA的深度学习实验管理工具runx(https://github.com/NVIDIA/runx)。自己重写了一下。
-    可以按照yml配置文件实现grid_searching。
+
+    ！！该程序会将yml配置文件中的所有命令执行一遍。！！
 
     用法：
-    python runx.py --sweep sweep.yml --show  # 默认
+    python grid_search.py --sweep sweep.yml --show  # 默认
 
-    python runx.py --sweep sweep.yml --run
+    python grid_search.py --sweep sweep.yml --run
 
 
 """

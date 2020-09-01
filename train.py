@@ -108,9 +108,9 @@ from network import get_model
 from eval import evaluate
 
 from utils import *
-# from torch_template.utils.torch_utils import create_summary_writer, write_meters_loss, LR_Scheduler
+
 from utils.torch_utils import create_summary_writer, write_meters_loss, write_image
-# from utils.send_sms import send_notification
+
 
 import misc_utils as utils
 
@@ -198,13 +198,6 @@ try:
             if global_step % 1000 == 999:
                 write_meters_loss(writer, 'train', model.avg_meters, global_step)
 
-            mini_freq = 100000
-            if opt.sampler and global_step % mini_freq == 0:
-                print()
-                mini_epoch = global_step // mini_freq + 1
-                model.save(mini_epoch)
-                eval_result = evaluate(model, val_dataloader, mini_epoch, writer, logger)
-
         logger.info(f'Train epoch: {epoch}, lr: {round(scheduler.get_lr()[0], 6) : .6f}, (loss) ' + str(model.avg_meters))
 
         if epoch % opt.save_freq == 0 or epoch == opt.epochs:  # 最后一个epoch要保存一下
@@ -230,8 +223,9 @@ try:
 
 except Exception as e:
 
-    # if not opt.debug:  # debug模式不会发短信 12是短信模板字数限制
-    #     send_notification([opt.tag[:12], str(e)[:12]], template='error')
+    """
+    出错时将错误信息记录到run_log.txt
+    """
 
     if opt.tag != 'cache':
         with open('run_log.txt', 'a') as f:

@@ -3,7 +3,6 @@ import pdb
 
 import torchvision.transforms.functional as F
 from torch.utils.data import DataLoader
-from dataloader.ClassAwareSampler import ClassAwareSampler
 import os
 from PIL import Image
 import torch.utils.data.dataset as dataset

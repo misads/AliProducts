@@ -57,7 +57,7 @@ Training:
     python train.py --tag your_tag --model ResNeSt101 --epochs 20 -b 24 --lr 0.0001 --gpu 0
 
 Finding Best Hyper Params:  # 需先设置好sweep.yml
-    python runx.py --run
+    python grid_search.py --run
 
 Resume Training (or fine-tune):
     python train.py --tag your_tag --model ResNeSt101 --epochs 20 -b 24 --load checkpoints/your_tag/9_ResNeSt101.pt --resume --gpu 0
@@ -96,7 +96,7 @@ See ALL Running Commands:
 
 `--gpu`指定`gpu id`，目前只支持单卡训练。  
 
-另外还可以通过参数调整优化器、学习率衰减、验证和保存模型的频率等，详细请查看`python train.py —help`。  
+另外还可以通过参数调整优化器、学习率衰减、验证和保存模型的频率等，详细请查看`python train.py --help`。  
 
 ## 如何添加自定义的模型：
 
