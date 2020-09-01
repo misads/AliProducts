@@ -18,8 +18,6 @@ from options import opt
 import misc_utils as utils
 
 from .res2net_wrapper import Classifier
-from loss import criterionRange
-from utils import OHEM
 
 #  criterionCE = nn.CrossEntropyLoss()
 
@@ -58,41 +56,17 @@ class Model(BaseModel):
         self.avg_meters = ExponentialMovingAverage(0.95)
         self.save_dir = os.path.join(opt.checkpoint_dir, opt.tag)
 
-        with open('datasets/class_weight.pkl', 'rb') as f:
-            class_weight = pickle.load(f, encoding='bytes')
-            class_weight = np.array(class_weight, dtype=np.float32)
-            class_weight = torch.from_numpy(class_weight).to(opt.device)
-            if opt.class_weight:
-                self.criterionCE = nn.CrossEntropyLoss(weight=class_weight)
-            else:
-                self.criterionCE = nn.CrossEntropyLoss()
-
-        if opt.ohem:
-            self.ohem = OHEM(hard_sample_per_batch=opt.ohem)
-
     def update(self, input, label):
 
         predicted = self.classifier(input)
-        if opt.ohem:
-            self.ohem.collect_batch(predicted, input, label)
 
         loss_ce = self.criterionCE(predicted, label)
         loss = loss_ce
         self.avg_meters.update({'Cross Entropy': loss_ce.item()})
 
-        if opt.weight_range:
-            _, _, range_loss = criterionRange(predicted, label)
-            range_loss = range_loss * opt.weight_range
-            loss += range_loss
-            self.avg_meters.update({'Range': range_loss.item()})
-
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
-
-        if opt.ohem and self.ohem.get_pool_size() >= opt.batch_size:  # hard sample够了一个batch
-            input, label = self.ohem.get_hard_batch()
-            self.update(input, label)
 
         return {'predicted': predicted}
 

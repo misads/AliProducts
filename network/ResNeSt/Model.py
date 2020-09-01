@@ -18,7 +18,6 @@ from options import opt
 import misc_utils as utils
 
 from .resnest_wrapper import Classifier
-from loss import criterionRange
 from loss import label_smooth_loss
 from mscv.image import tensor2im
 
@@ -78,12 +77,6 @@ class Model(BaseModel):
         loss = loss_ce
 
         self.avg_meters.update({'CE loss(label smooth)': loss_ce.item()})
-
-        # if opt.weight_range:
-        #     _, _, range_loss = criterionRange(predicted, label)
-        #     range_loss = range_loss * opt.weight_range
-        #     loss += range_loss
-        #     self.avg_meters.update({'Range': range_loss.item()})
 
         self.optimizer.zero_grad()
         loss.backward()

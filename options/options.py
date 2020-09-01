@@ -56,7 +56,6 @@ def parse_args():
 
     # loss weight
     parser.add_argument('--weight_ce', type=float, default=1.)  # Cross Entropy
-    parser.add_argument('--weight_range', type=float, default=0.)  # Range Loss
 
     # training options
     parser.add_argument('--debug', action='store_true', help='debug mode')

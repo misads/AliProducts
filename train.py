@@ -120,6 +120,13 @@ import misc_utils as utils
 save_root = os.path.join(opt.checkpoint_dir, opt.tag)
 log_root = os.path.join(opt.log_dir, opt.tag)
 
+if os.path.isdir(log_root):
+    utils.color_print('该tag已使用过，可能会覆盖之前的结果，是否继续? (y/n) ', 3, end='')
+    confirm = input('')
+    if not confirm or confirm[0] != 'y':
+        utils.color_print('Aborted.', 1)
+        exit(1)
+
 utils.try_make_dir(save_root)
 utils.try_make_dir(log_root)
 
@@ -140,7 +147,7 @@ model = model.to(device=opt.device)
 
 if opt.load:
     load_epoch = model.load(opt.load)
-    start_epoch = load_epoch + 1 if opt.resume and not opt.sampler else 1
+    start_epoch = load_epoch + 1 if opt.resume else 1
 else:
     start_epoch = 1
 

@@ -26,7 +26,7 @@ if TEST_DATASET_HAS_OPEN:
     test_list = "./datasets/test.txt"  # 测试集
 
     test_dataset = TestDataset(test_list, scale=opt.scale, max_size=max_size, norm=opt.norm_input)
-    test_dataloader = DataLoader(test_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=1)
+    test_dataloader = DataLoader(test_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=4)
 
 else:
     test_dataloader = None
