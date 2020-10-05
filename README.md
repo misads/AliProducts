@@ -4,6 +4,8 @@
 
 队伍：薯片分类器！
 
+<img alt='preview' src='http://www.xyu.ink/wp-content/uploads/2020/06/preview.png' width=600 height=400>
+
 ## Features
 
 - Backbone
