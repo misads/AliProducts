@@ -4,9 +4,10 @@ from abc import abstractmethod
 import torch
 import sys
 
-from misc_utils import color_print
+import misc_utils as utils
 from options import opt
 
+from collections import OrderedDict
 
 class BaseModel(torch.nn.Module):
     def __init__(self):

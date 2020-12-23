@@ -11,7 +11,7 @@ def init_log(training=True):
         log_dir = os.path.join(opt.result_dir, opt.tag, str(opt.which_epoch))
 
     utils.try_make_dir(log_dir)
-    logger = utils.get_logger(f=os.path.join(log_dir, 'log.txt'), level='info')
+    logger = utils.get_logger(f=os.path.join(log_dir, 'log.txt'), level='info', mode='a')
 
     logger.info('==================Options==================')
     for k, v in opt._get_kwargs():

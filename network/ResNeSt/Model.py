@@ -21,7 +21,7 @@ from .resnest_wrapper import Classifier
 from loss import label_smooth_loss
 from mscv.image import tensor2im
 
-#  criterionCE = nn.CrossEntropyLoss()
+criterionCE = nn.CrossEntropyLoss()
 
 class Model(BaseModel):
     def __init__(self, opt):

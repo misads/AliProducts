@@ -26,7 +26,7 @@ train_dataset = TrainValDataset(train_list, transforms=train_transform, max_size
 train_dataloader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=opt.workers, drop_last=True)
 
 val_dataset = TrainValDataset(val_list, transforms=val_transform, max_size=max_size)
-val_dataloader = DataLoader(val_dataset, batch_size=1, shuffle=False, num_workers=opt.workers//2)
+val_dataloader = DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=False, num_workers=opt.workers//2)
 
 if TEST_DATASET_HAS_OPEN:
     test_list = "./datasets/test.txt"  # 测试集

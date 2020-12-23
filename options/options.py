@@ -35,8 +35,8 @@ def parse_args():
     parser.add_argument('--workers', '-w', type=int, default=4, help='dataloader workers')
     
     # optimizer and scheduler
-    parser.add_argument('--optimizer', choices=['adam', 'sgd', 'radam', 'lookahead', 'ranger'], default='ranger')
-    parser.add_argument('--scheduler', choices=['cos', 'step', 'exp', 'cyclic', 'lambda', 'None'], default='cos')
+    parser.add_argument('--optimizer', choices=['adam', 'sgd', 'radam', 'lookahead', 'ranger'], default='adam')
+    parser.add_argument('--scheduler', default='none')
 
     # data argumentation
     # parser.add_argument('--aug', action='store_true', help='Randomly scale, jitter, change hue, saturation and brightness')
@@ -45,7 +45,7 @@ def parse_args():
 
     # scale
     parser.add_argument('--scale', type=int, default=256, help='scale images to this size')
-    parser.add_argument('--crop', type=int, default=None, help='then crop to this size')
+    parser.add_argument('--num_classes', type=int, default=43, help='num of classes')
 
     # for datasets
     parser.add_argument('--dataset', choices=['default'], default='default', help='training dataset')

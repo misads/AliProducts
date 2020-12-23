@@ -16,6 +16,7 @@ from torch.autograd import Variable
 
 import dataloader as dl
 from options import opt
+from scheduler import schedulers
 
 from network import get_model
 from eval import evaluate
@@ -33,13 +34,6 @@ with torch.no_grad():
     # 初始化路径
     save_root = os.path.join(opt.checkpoint_dir, opt.tag)
     log_root = os.path.join(opt.log_dir, opt.tag)
-
-    if os.path.isdir(log_root):
-        utils.color_print('该tag已使用过，可能会覆盖之前的结果，是否继续? (y/n) ', 3, end='')
-        confirm = input('')
-        if not confirm or confirm[0] != 'y':
-            utils.color_print('Aborted.', 1)
-            exit(1)
 
     utils.try_make_dir(save_root)
     utils.try_make_dir(log_root)
@@ -84,7 +78,18 @@ with torch.no_grad():
     writer = create_summary_writer(log_root)
 
     start_time = time.time()
+    
+    # 在日志记录transforms
+    logger.info('train_trasforms: ' +str(train_dataloader.dataset.transforms))
+    logger.info('===========================================')
+    if val_dataloader is not None:
+        logger.info('val_trasforms: ' +str(val_dataloader.dataset.transforms))
+    logger.info('===========================================')
 
+    # 在日志记录scheduler
+    if opt.scheduler in schedulers:
+        logger.info('scheduler: (Lambda scheduler)\n' + str(schedulers[opt.scheduler]))
+        logger.info('===========================================')
 
 try:
     # 训练循环

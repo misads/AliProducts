@@ -6,8 +6,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from .resnest import resnest101, resnest200
+from options import opt
 
-classes = 50030
+classes = opt.num_classes
 
 arch_dict = {
     'ResNeSt101': resnest101,
