@@ -10,7 +10,7 @@ def parse_args():
     # experiment specifics
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--tag', type=str, default='cache',
+    parser.add_argument('tag', type=str,  default='cache', nargs='?',
                         help='folder name to clear')
 
     parser.add_argument('--rm', action='store_true', help='debug mode')
@@ -21,6 +21,9 @@ def parse_args():
 opt = parse_args()
 
 paths = ['checkpoints', 'logs', 'results']
+
+if opt.tag.startswith('logs/'):
+    opt.tag = opt.tag[5:]
 
 if opt.rm:
     for path in paths:

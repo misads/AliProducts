@@ -6,9 +6,8 @@ from collections import defaultdict
 
 import dataloader as dl
 from options import opt
-from torch_template.utils.torch_utils import write_loss
+from mscv.summary import write_loss
 
-sys.path.insert(1, '../')
 import torch
 import torchvision
 import numpy as np
@@ -83,7 +82,7 @@ if __name__ == '__main__':
     from options import opt
     from network import get_model
     import misc_utils as utils
-    from torch_template.utils.torch_utils import create_summary_writer
+    from mscv.summary import create_summary_writer
 
     if not opt.load:
         print('Usage: eval.py [--tag TAG] --load LOAD')

@@ -32,15 +32,16 @@ def parse_args():
 
     # batch size
     parser.add_argument('--batch_size', '-b', type=int, default=1, help='input batch size')
-
+    parser.add_argument('--workers', '-w', type=int, default=4, help='dataloader workers')
+    
     # optimizer and scheduler
     parser.add_argument('--optimizer', choices=['adam', 'sgd', 'radam', 'lookahead', 'ranger'], default='ranger')
     parser.add_argument('--scheduler', choices=['cos', 'step', 'exp', 'cyclic', 'lambda', 'None'], default='cos')
 
     # data argumentation
-    parser.add_argument('--aug', action='store_true', help='Randomly scale, jitter, change hue, saturation and brightness')
-    parser.add_argument('--norm-input', action='store_true')
-    parser.add_argument('--random-erase', action='store_true', help='debug mode')
+    # parser.add_argument('--aug', action='store_true', help='Randomly scale, jitter, change hue, saturation and brightness')
+    # parser.add_argument('--norm-input', action='store_true')
+    # parser.add_argument('--random-erase', action='store_true', help='debug mode')
 
     # scale
     parser.add_argument('--scale', type=int, default=256, help='scale images to this size')
@@ -48,6 +49,7 @@ def parse_args():
 
     # for datasets
     parser.add_argument('--dataset', choices=['default'], default='default', help='training dataset')
+    parser.add_argument('--transform', default='resize', help='transform')
     parser.add_argument('--val_set', type=str, default=None)
     parser.add_argument('--test_set', type=str, default=None)
 

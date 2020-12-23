@@ -11,7 +11,7 @@ import torch.nn.functional as F
 
 from network.base_model import BaseModel
 from collections import OrderedDict
-from torch_template.utils.torch_utils import ExponentialMovingAverage, print_network
+from mscv import ExponentialMovingAverage, print_network
 from optimizer import get_optimizer
 from scheduler import get_scheduler
 from options import opt

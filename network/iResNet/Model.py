@@ -9,7 +9,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from network.base_model import BaseModel
-from torch_template.utils.torch_utils import ExponentialMovingAverage, print_network
+from mscv import ExponentialMovingAverage, print_network
 from options import opt
 
 from .iresnest_wrapper import Classifier
