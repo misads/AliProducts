@@ -26,7 +26,7 @@ def parse_args():
     parser.add_argument('--result_dir', type=str, default='./results', help='results are saved here')
     #######################
 
-    parser.add_argument('--model', type=str, default='default', help='which model to use')
+    parser.add_argument('--model', type=str, default=None, help='which model to use')
     parser.add_argument('--norm', type=str, choices=['batch', 'instance', None], default=None,
                         help='[instance] normalization or [batch] normalization')
 

@@ -76,7 +76,7 @@ albumentations>=0.5.1
 　　生成好train.txt和val.txt后目录结构是这样的：
   
 ```yml
-cv_template
+AliProducts
     └── datasets
           ├── train.txt      
           └── val.txt    
@@ -116,7 +116,21 @@ CUDA_VISIBLE_DEVICES=0 python submit.py --model ResNeSt101 --load checkpoints/re
 
 　　所有运行的命令和运行命令的时间戳会自动记录在`run_log.txt`中。
 
-　　不同实验的详细日志和Tensorboard日志文件会记录在`logs/<tag>`文件夹中，checkpoint文件会保存在`checkpoints/<tag>`文件夹中。
+　　不同实验的详细日志和Tensorboard日志文件会记录在`logs/<tag>`文件夹中，checkpoint文件会保存在`checkpoints/<tag>`文件夹中。如下所示：
+
+```yml
+AliProducts
+    ├── run_log.txt    # 运行的历史命令
+    ├── logs
+    │     └── <tag>
+    │           ├── log.txt  
+    │           └── [Tensorboard files]
+    └── checkpoints
+          └── <tag>
+                ├── 1_Model.pt
+                └── 2_Model.pt
+          
+```
 
 ### 参数说明
 

@@ -1,4 +1,4 @@
-from .Default.Model import Model as Default
+from .ResNet.Model import Model as ResNet
 from .ResNeXt.Model import Model as ResNeXt
 from .ResNeSt.Model import Model as ResNeSt
 from .Res2Net.Model import Model as Res2Net
@@ -6,8 +6,7 @@ from .iResNet.Model import Model as iResNet
 from .EfficientNet.Model import Model as Efficient
 
 models = {
-    'default': Default,  # if --model is not specified
-    'res101': Default,
+    'ResNet101': ResNet,
     'ResNeXt101': ResNeXt,
     'ResNeSt101': ResNeSt,
     'ResNeSt200': ResNeSt,
@@ -23,6 +22,9 @@ models = {
 
 
 def get_model(model: str):
+    if model is None:
+        raise AttributeError('--model MUST be specified now, available: {%s}.' % ('|'.join(models.keys())))
+
     if model in models:
         return models[model]
     else:
