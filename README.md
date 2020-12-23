@@ -85,7 +85,7 @@ AliProducts
 ② 训练模型
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python train.py --tag resnest --model ResNeSt101 --epochs 20 -b 24 --lr 0.0001 # --tag用于区分每次实验，可以是任意字符串
+CUDA_VISIBLE_DEVICES=0 python train.py --tag resnest --model ResNeSt101 --scheduler 2x -b 24 --lr 0.0001  # --tag用于区分每次实验，可以是任意字符串
 ```
 
 　　训练的中途可以在验证集上验证，添加`--val_freq 10`参数可以指定10个epoch验证一次，添加`--save_freq 10`参数可以指定10个epoch保存一次checkpoint。
