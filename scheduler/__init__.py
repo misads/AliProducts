@@ -3,7 +3,7 @@ from easydict import EasyDict
 from options import opt
 
 
-warmup = 1.
+warmup = 1.  # warmup的学习率系数, 为1时不进行warmup
 
 schedulers = {
     '1x': {  # Faster_RCNN

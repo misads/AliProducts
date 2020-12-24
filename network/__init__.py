@@ -8,6 +8,7 @@ from .EfficientNet.Model import Model as Efficient
 models = {
     'ResNet101': ResNet,
     'ResNeXt101': ResNeXt,
+    'ResNeSt50': ResNeSt,
     'ResNeSt101': ResNeSt,
     'ResNeSt200': ResNeSt,
     'Res2Net101': Res2Net,  # Res2Net-v1b-101

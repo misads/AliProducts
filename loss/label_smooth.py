@@ -27,4 +27,4 @@ class LabelSmoothing(nn.Module):
         return loss.mean()
 
 
-label_smooth_loss = LabelSmoothing(smoothing=0.1)
+

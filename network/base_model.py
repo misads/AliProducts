@@ -5,6 +5,8 @@ import torch
 import sys
 
 import misc_utils as utils
+
+from mscv import ExponentialMovingAverage
 from options import opt
 
 from collections import OrderedDict
@@ -12,6 +14,8 @@ from collections import OrderedDict
 class BaseModel(torch.nn.Module):
     def __init__(self):
         super(BaseModel, self).__init__()
+        self.avg_meters = ExponentialMovingAverage(0.95)
+        self.save_dir = os.path.join(opt.checkpoint_dir, opt.tag)
 
     def forward(self, x):
         pass
@@ -26,6 +30,8 @@ class BaseModel(torch.nn.Module):
         if opt.resume:
             self.optimizer.load_state_dict(load_dict['optimizer'])
             self.scheduler.load_state_dict(load_dict['scheduler'])
+            self.scheduler.step()
+            
             epoch = load_dict['epoch']
             utils.color_print('Load checkpoint from %s, resume training.' % ckpt_path, 3)
         else:

@@ -5,12 +5,13 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from .resnest import resnest101, resnest200
+from .resnest import resnest50, resnest101, resnest200
 from options import opt
 
 classes = opt.num_classes
 
 arch_dict = {
+    'ResNeSt50': resnest50,
     'ResNeSt101': resnest101,
     'ResNeSt200': resnest200
 
