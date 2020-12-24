@@ -113,8 +113,5 @@ if opt.tag != 'cache':
     with open('run_log.txt', 'a') as f:
         f.writelines(utils.get_time_str(fmt="%Y-%m-%d %H:%M:%S") + ' ' + pid + ' ' + get_command_run() + '\n')
 
-if opt.tag != 'cache':
-    with open('run_log.txt', 'a') as f:
-        f.writelines(utils.get_time_str(fmt="%Y-%m-%d %H:%M:%S") + ' ' + get_command_run() + '\n')
 
 # utils.print_args(opt)

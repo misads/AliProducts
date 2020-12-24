@@ -12,10 +12,12 @@ else:
 def get_loss(predicted, label, avg_meters, *args):
     ce_loss = criterionCE(predicted, label)
 
+    assert opt.smooth < 1, 'smooth should be smaller than 1.0'
+
     if opt.smooth == 0:  # 不用label smooth
-        self.avg_meters.update({'CE loss': ce_loss.item()})
+        avg_meters.update({'CE loss': ce_loss.item()})
         return ce_loss
     else:
         smooth_loss = label_smooth_loss(predicted, label) 
-        self.avg_meters.update({f'Smooth loss(smooth={opt.smooth})': smooth_loss.item()})
+        avg_meters.update({f'CE loss(smooth={opt.smooth})': smooth_loss.item()})
         return smooth_loss
